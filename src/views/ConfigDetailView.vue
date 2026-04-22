@@ -70,9 +70,14 @@ useHead({
     { property: 'og:description', content: () => config.value?.tagline || '' },
     { property: 'og:site_name', content: 'Loïc.config' },
     { property: 'og:locale', content: 'fr_CH' },
+    { property: 'og:image', content: () => `${SITE_URL}/og/${props.slug}.svg` },
+    { property: 'og:image:type', content: 'image/svg+xml' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: () => config.value?.name || 'Configuration' },
-    { name: 'twitter:description', content: () => config.value?.tagline || '' }
+    { name: 'twitter:description', content: () => config.value?.tagline || '' },
+    { name: 'twitter:image', content: () => `${SITE_URL}/og/${props.slug}.svg` }
   ],
   script: [
     {

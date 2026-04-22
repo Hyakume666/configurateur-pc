@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05060a"/>
+      <stop offset="1" stop-color="#10141f"/>
+    </linearGradient>
+    <linearGradient id="text-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00e5ff"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+    <radialGradient id="glow-tl" cx="0.15" cy="0.2" r="0.5">
+      <stop offset="0" stop-color="#00a3ff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#00a3ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-br" cx="0.85" cy="0.85" r="0.5">
+      <stop offset="0" stop-color="#a855f7" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="rgba(0,229,255,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow-tl)"/>
+  <rect width="1200" height="630" fill="url(#glow-br)"/>
+  <text x="600" y="280" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="60" font-weight="800" fill="#f8fafc" text-anchor="middle">Configurateur PC Gaming</text>
+  <text x="600" y="350" font-family="system-ui, sans-serif" font-size="42" font-weight="700" fill="url(#text-grad)" text-anchor="middle">Suisse romande</text>
+  <text x="600" y="430" font-family="system-ui, sans-serif" font-size="24" fill="#cbd5e1" text-anchor="middle">Configuration sur mesure en 5 questions</text>
+  <text x="600" y="560" font-family="system-ui, sans-serif" font-size="20" fill="#64748b" text-anchor="middle">pc.loicbarthoulot.ch</text>
+</svg>

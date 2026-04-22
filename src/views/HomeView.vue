@@ -48,7 +48,12 @@ useHead({
     { property: 'og:description', content: 'Trouvez votre PC gaming parfait en 5 questions. Assemblé en Suisse romande.' },
     { property: 'og:site_name', content: 'Loïc.config' },
     { property: 'og:locale', content: 'fr_CH' },
-    { name: 'twitter:card', content: 'summary_large_image' }
+    { property: 'og:image', content: `${SITE_URL}/og-default.svg` },
+    { property: 'og:image:type', content: 'image/svg+xml' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: `${SITE_URL}/og-default.svg` }
   ],
   script: [
     {
