@@ -8,5 +8,14 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    include: ['tests/**/*.{test,spec}.{js,ts,vue}'],
+    coverage: {
+      reporter: ['text', 'html'],
+      exclude: ['node_modules', 'dist', 'tests', 'functions']
+    }
   }
 })
