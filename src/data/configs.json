@@ -336,5 +336,138 @@
         "componentReplaces": null
       }
     ]
+  },
+  {
+    "id": "silent_pro",
+    "slug": "silent-pro",
+    "name": "Silent Pro",
+    "tier": "mid",
+    "usage": ["office", "creation"],
+    "tagline": "PC quasi inaudible pour télétravail intensif et création légère",
+    "totalPrice": 1380,
+    "assemblyFee": 170,
+    "performanceScore": { "gaming": 65, "creation": 70, "office": 100, "value": 80, "future": 75 },
+    "components": [
+      "cpu_ryzen_5_7600",
+      "gpu_rtx_4070",
+      "ram_32_ddr5_5600",
+      "ssd_2tb_pcie4",
+      "mb_msi_b650p_wifi",
+      "psu_bequiet_straight11_750",
+      "case_fractal_define7",
+      "cooling_noctua_nh_d15"
+    ],
+    "pros": [
+      "Niveau sonore < 25 dBA en idle",
+      "Refroidissement air haut de gamme Noctua",
+      "Boîtier insonorisé Fractal Define 7"
+    ],
+    "cons": [
+      "Pas conçu pour overclocking extrême",
+      "GPU choisi pour son ratio bruit/perf, pas pour le top FPS"
+    ],
+    "targetGames": [
+      { "name": "Cyberpunk 2077", "fps": "70+ FPS", "settings": "Ultra 1440p DLSS Q" },
+      { "name": "Adobe Lightroom", "fps": "Fluide", "settings": "RAW 50 MP" },
+      { "name": "Visioconférence + 30 onglets", "fps": "Fluide", "settings": "Sans ralentissement" }
+    ],
+    "badge": null,
+    "upgrades": [
+      {
+        "id": "ssd_double",
+        "name": "Ajouter 2TB NVMe",
+        "description": "Disque secondaire pour archives projets",
+        "priceAdd": 169,
+        "componentReplaces": null
+      }
+    ]
+  },
+  {
+    "id": "creator_mid",
+    "slug": "creator-mid",
+    "name": "Créateur Solo",
+    "tier": "high",
+    "usage": ["creation", "rpg"],
+    "tagline": "Montage 4K, photo, streaming Twitch — sans le surcoût du tier extrême",
+    "totalPrice": 1880,
+    "assemblyFee": 170,
+    "performanceScore": { "gaming": 78, "creation": 88, "office": 96, "value": 78, "future": 80 },
+    "components": [
+      "cpu_intel_i5_14400",
+      "gpu_rtx_4070_super",
+      "ram_64_ddr5_6000",
+      "ssd_2tb_pcie4",
+      "ssd_2tb_pcie4_secondary",
+      "mb_asus_b760m_d4",
+      "psu_corsair_rm750x",
+      "case_lianli_o11_evo"
+    ],
+    "pros": [
+      "64GB DDR5 pour timelines 4K confortables",
+      "Double SSD 2TB (système + projets)",
+      "i5-14400 efficient sur tâches multi-thread"
+    ],
+    "cons": [
+      "i5-14400 moins extrême qu'un Ryzen 9 si rendu CPU lourd",
+      "Pas de PCIe 5.0 sur la carte mère B760"
+    ],
+    "targetGames": [
+      { "name": "DaVinci Resolve 4K", "fps": "Lecture fluide", "settings": "10-bit timeline" },
+      { "name": "OBS Streaming + jeu", "fps": "Stable 60 FPS", "settings": "1080p NVENC" },
+      { "name": "Premiere Pro", "fps": "Export rapide", "settings": "H.264 hardware" }
+    ],
+    "badge": "Nouveau",
+    "upgrades": [
+      {
+        "id": "gpu_4070_ti_super_creator",
+        "name": "Upgrade GPU RTX 4070 Ti Super",
+        "description": "Plus de VRAM pour Resolve et After Effects",
+        "priceAdd": 230,
+        "componentReplaces": "gpu_rtx_4070_super"
+      }
+    ]
+  },
+  {
+    "id": "compact_itx",
+    "slug": "compact-itx",
+    "name": "Compact ITX",
+    "tier": "budget",
+    "usage": ["office", "fps"],
+    "tagline": "Mini-PC bureau & gaming léger — tient dans 10 litres",
+    "totalPrice": 970,
+    "assemblyFee": 200,
+    "performanceScore": { "gaming": 45, "creation": 40, "office": 95, "value": 78, "future": 55 },
+    "components": [
+      "cpu_amd_8500g",
+      "ram_16_ddr5_5200",
+      "ssd_1tb_pcie4",
+      "mb_msi_b650i_itx",
+      "psu_corsair_sf600_sfx",
+      "case_fractal_terra"
+    ],
+    "pros": [
+      "Format ultra compact 10L (Fractal Terra)",
+      "iGPU Radeon 740M suffisant pour eSport léger",
+      "Idéal salon ou bureau peu encombré"
+    ],
+    "cons": [
+      "Pas conçu pour les jeux AAA récents en haute qualité",
+      "Montage ITX plus minutieux (frais d'assemblage majorés)"
+    ],
+    "targetGames": [
+      { "name": "League of Legends", "fps": "120+ FPS", "settings": "High 1080p" },
+      { "name": "CS2", "fps": "100+ FPS", "settings": "Low 1080p" },
+      { "name": "Office 365 / Web", "fps": "Instantané", "settings": "Multitâche fluide" }
+    ],
+    "badge": "Nouveau",
+    "upgrades": [
+      {
+        "id": "add_dgpu",
+        "name": "Ajouter une GPU dédiée RTX 4060",
+        "description": "Pour gaming 1080p moderne (vérifier compatibilité châssis SFF)",
+        "priceAdd": 329,
+        "componentReplaces": null
+      }
+    ]
   }
 ]

@@ -698,5 +698,159 @@
       "digitec": "https://www.digitec.ch/search?q=Lian%20Li%20O11%20EVO%20XL",
       "amazon": "https://www.amazon.fr/s?k=Lian+Li+O11+Dynamic+EVO+XL"
     }
+  },
+  {
+    "id": "cpu_intel_i5_14400",
+    "name": "Intel Core i5-14400",
+    "type": "cpu",
+    "brand": "Intel",
+    "model": "Core i5-14400",
+    "price": 219,
+    "specs": { "cores": "6P+4E", "threads": 16, "boost": "4.7 GHz", "socket": "LGA1700", "tdp": "65W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Intel%20i5-14400",
+      "digitec": "https://www.digitec.ch/search?q=Intel%20i5-14400",
+      "amazon": "https://www.amazon.fr/s?k=Intel+i5-14400"
+    }
+  },
+  {
+    "id": "cpu_amd_8500g",
+    "name": "AMD Ryzen 5 8500G (iGPU)",
+    "type": "cpu",
+    "brand": "AMD",
+    "model": "Ryzen 5 8500G",
+    "price": 169,
+    "specs": { "cores": 6, "threads": 12, "boost": "5.0 GHz", "socket": "AM5", "igpu": "Radeon 740M", "tdp": "65W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Ryzen%205%208500G",
+      "digitec": "https://www.digitec.ch/search?q=Ryzen%205%208500G",
+      "amazon": "https://www.amazon.fr/s?k=Ryzen+5+8500G"
+    }
+  },
+  {
+    "id": "gpu_rtx_4070",
+    "name": "NVIDIA GeForce RTX 4070 12GB",
+    "type": "gpu",
+    "brand": "NVIDIA",
+    "model": "RTX 4070",
+    "price": 549,
+    "specs": { "vram": "12GB GDDR6X", "tdp": "200W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/RTX%204070",
+      "digitec": "https://www.digitec.ch/search?q=RTX%204070",
+      "amazon": "https://www.amazon.fr/s?k=RTX+4070"
+    }
+  },
+  {
+    "id": "ssd_2tb_pcie4_secondary",
+    "name": "SSD 2TB NVMe PCIe 4.0 (secondaire)",
+    "type": "storage",
+    "brand": "WD",
+    "model": "Black SN850X 2TB",
+    "price": 169,
+    "specs": { "capacity": "2TB", "interface": "PCIe 4.0 x4", "type": "NVMe" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/WD%20SN850X%202TB",
+      "digitec": "https://www.digitec.ch/search?q=WD%20SN850X%202TB",
+      "amazon": "https://www.amazon.fr/s?k=WD+Black+SN850X+2TB"
+    }
+  },
+  {
+    "id": "mb_asus_b760m_d4",
+    "name": "ASUS Prime B760M-A D4",
+    "type": "motherboard",
+    "brand": "ASUS",
+    "model": "Prime B760M-A D4",
+    "price": 139,
+    "specs": { "socket": "LGA1700", "chipset": "B760", "form": "mATX" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/ASUS%20B760M-A%20D4",
+      "digitec": "https://www.digitec.ch/search?q=ASUS%20B760M-A%20D4",
+      "amazon": "https://www.amazon.fr/s?k=ASUS+Prime+B760M-A+D4"
+    }
+  },
+  {
+    "id": "mb_msi_b650i_itx",
+    "name": "MSI MPG B650I Edge WiFi (mini-ITX)",
+    "type": "motherboard",
+    "brand": "MSI",
+    "model": "MPG B650I Edge WiFi",
+    "price": 269,
+    "specs": { "socket": "AM5", "chipset": "B650", "form": "mini-ITX", "wifi": true },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/MSI%20MPG%20B650I",
+      "digitec": "https://www.digitec.ch/search?q=MSI%20MPG%20B650I",
+      "amazon": "https://www.amazon.fr/s?k=MSI+MPG+B650I+Edge"
+    }
+  },
+  {
+    "id": "psu_bequiet_straight11_750",
+    "name": "be quiet! Straight Power 11 750W 80+ Platinum",
+    "type": "psu",
+    "brand": "be quiet!",
+    "model": "Straight Power 11 750W",
+    "price": 179,
+    "specs": { "power": "750W", "rating": "80+ Platinum", "modular": "Full", "fan": "Silent Wings 3 135mm" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Straight%20Power%2011%20750W",
+      "digitec": "https://www.digitec.ch/search?q=Straight%20Power%2011%20750W",
+      "amazon": "https://www.amazon.fr/s?k=be+quiet+Straight+Power+11+750W"
+    }
+  },
+  {
+    "id": "psu_corsair_sf600_sfx",
+    "name": "Corsair SF600 600W 80+ Platinum (SFX)",
+    "type": "psu",
+    "brand": "Corsair",
+    "model": "SF600 SFX",
+    "price": 159,
+    "specs": { "power": "600W", "rating": "80+ Platinum", "modular": "Full", "form": "SFX" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Corsair%20SF600",
+      "digitec": "https://www.digitec.ch/search?q=Corsair%20SF600",
+      "amazon": "https://www.amazon.fr/s?k=Corsair+SF600+SFX"
+    }
+  },
+  {
+    "id": "case_fractal_define7",
+    "name": "Fractal Design Define 7",
+    "type": "case",
+    "brand": "Fractal Design",
+    "model": "Define 7",
+    "price": 199,
+    "specs": { "form": "Mid Tower", "noise": "silent oriented", "fans": "3x 140mm" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Fractal%20Define%207",
+      "digitec": "https://www.digitec.ch/search?q=Fractal%20Define%207",
+      "amazon": "https://www.amazon.fr/s?k=Fractal+Design+Define+7"
+    }
+  },
+  {
+    "id": "case_fractal_terra",
+    "name": "Fractal Design Terra (mini-ITX)",
+    "type": "case",
+    "brand": "Fractal Design",
+    "model": "Terra",
+    "price": 189,
+    "specs": { "form": "mini-ITX SFF", "volume": "10.4L", "design": "wood front panel" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Fractal%20Terra",
+      "digitec": "https://www.digitec.ch/search?q=Fractal%20Terra",
+      "amazon": "https://www.amazon.fr/s?k=Fractal+Design+Terra"
+    }
+  },
+  {
+    "id": "cooling_noctua_nh_d15",
+    "name": "Noctua NH-D15 chromax.black (air silencieux)",
+    "type": "cooling",
+    "brand": "Noctua",
+    "model": "NH-D15 chromax.black",
+    "price": 119,
+    "specs": { "type": "Air dual tower", "fans": "2x NF-A15 PWM", "noise": "24.6 dBA" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Noctua%20NH-D15",
+      "digitec": "https://www.digitec.ch/search?q=Noctua%20NH-D15",
+      "amazon": "https://www.amazon.fr/s?k=Noctua+NH-D15+chromax"
+    }
   }
 ]
