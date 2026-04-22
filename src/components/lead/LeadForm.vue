@@ -20,8 +20,30 @@ const form = reactive({
   message: '',
   wantsSourcing: false,
   hasSomeComponents: false,
-  excludedTypes: []
+  excludedTypes: [],
+  // honeypot — must stay empty; bots auto-fill
+  website: ''
 })
+
+const formStartedAt = Date.now()
+const MIN_FILL_MS = 2500
+
+const EMAIL_RE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,24}$/
+const NAME_RE = /^[\p{L}\p{M}'\- ]{1,60}$/u
+const PHONE_RE = /^[+\d\s().-]{6,30}$/
+
+function escapeHtml(s = '') {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+function stripCtrl(s = '') {
+  return String(s).replace(/[\r\n\t\0]/g, ' ').trim()
+}
 
 const componentTypes = [
   { id: 'cpu', label: 'Processeur' },
@@ -47,55 +69,84 @@ const totalWithUpgrades = computed(() => {
   return t
 })
 
-const isValid = computed(
-  () =>
-    form.firstName.trim() &&
-    form.lastName.trim() &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
-)
+const isValid = computed(() => {
+  const first = stripCtrl(form.firstName)
+  const last = stripCtrl(form.lastName)
+  const email = stripCtrl(form.email)
+  if (!NAME_RE.test(first) || !NAME_RE.test(last)) return false
+  if (!EMAIL_RE.test(email)) return false
+  if (form.phone && !PHONE_RE.test(stripCtrl(form.phone))) return false
+  return true
+})
 
 function buildHtmlBody() {
+  const e = escapeHtml
+  const cfgName = e(props.config.name)
+  const cfgTagline = e(props.config.tagline)
+
   const upgradesHtml = selectedUpgradesDetails.value.length
     ? `<ul>${selectedUpgradesDetails.value
-        .map((u) => `<li>${u.name} (+${formatPriceCHF(u.priceAdd)})</li>`)
+        .map((u) => `<li>${e(u.name)} (+${e(formatPriceCHF(u.priceAdd))})</li>`)
         .join('')}</ul>`
     : '<em>Aucune option supplémentaire</em>'
 
   const excludedHtml = form.hasSomeComponents && form.excludedTypes.length
-    ? `<p><strong>Composants déjà possédés :</strong> ${form.excludedTypes.join(', ')}</p>`
+    ? `<p><strong>Composants déjà possédés :</strong> ${e(form.excludedTypes.join(', '))}</p>`
+    : ''
+
+  const messageHtml = form.message
+    ? `<hr/><h3>Message du client</h3><p>${escapeHtml(stripCtrl(form.message)).replace(/\n/g, '<br/>')}</p>`
     : ''
 
   return `
-    <h2>Nouvelle demande — ${props.config.name}</h2>
-    <p><strong>Client :</strong> ${form.firstName} ${form.lastName}</p>
-    <p><strong>Email :</strong> ${form.email}</p>
-    ${form.phone ? `<p><strong>Téléphone :</strong> ${form.phone}</p>` : ''}
+    <h2>Nouvelle demande — ${cfgName}</h2>
+    <p><strong>Client :</strong> ${e(stripCtrl(form.firstName))} ${e(stripCtrl(form.lastName))}</p>
+    <p><strong>Email :</strong> ${e(stripCtrl(form.email))}</p>
+    ${form.phone ? `<p><strong>Téléphone :</strong> ${e(stripCtrl(form.phone))}</p>` : ''}
     <hr/>
     <h3>Configuration demandée</h3>
-    <p><strong>${props.config.name}</strong> — ${props.config.tagline}</p>
-    <p><strong>Prix de base :</strong> ${formatPriceCHF(props.config.totalPrice + props.config.assemblyFee)}</p>
-    <p><strong>Total avec options :</strong> ${formatPriceCHF(totalWithUpgrades.value)}</p>
+    <p><strong>${cfgName}</strong> — ${cfgTagline}</p>
+    <p><strong>Prix de base :</strong> ${e(formatPriceCHF(props.config.totalPrice + props.config.assemblyFee))}</p>
+    <p><strong>Total avec options :</strong> ${e(formatPriceCHF(totalWithUpgrades.value))}</p>
     <h4>Options sélectionnées</h4>
     ${upgradesHtml}
     ${excludedHtml}
     <p><strong>Souhaite que je commande les composants :</strong> ${form.wantsSourcing ? 'Oui' : 'Non'}</p>
-    ${form.message ? `<hr/><h3>Message du client</h3><p>${form.message.replace(/\n/g, '<br/>')}</p>` : ''}
+    ${messageHtml}
   `
 }
 
 async function submit() {
   if (!isValid.value || status.value === 'loading') return
+
+  // Honeypot — bots fill hidden fields. Fake success, no network call.
+  if (form.website) {
+    status.value = 'success'
+    return
+  }
+
+  // Anti-bot timing — humans need > MIN_FILL_MS to fill the form.
+  if (Date.now() - formStartedAt < MIN_FILL_MS) {
+    status.value = 'success'
+    return
+  }
+
   status.value = 'loading'
   error.value = null
 
   const apiKey = import.meta.env.VITE_BREVO_API_KEY
   const ownerEmail = import.meta.env.VITE_OWNER_EMAIL
 
+  const safeFirst = stripCtrl(form.firstName)
+  const safeLast = stripCtrl(form.lastName)
+  const safeEmail = stripCtrl(form.email)
+  const safeConfigName = stripCtrl(props.config.name)
+
   const payload = {
     sender: { email: ownerEmail || 'noreply@configurateur-pc.ch', name: 'Configurateur PC' },
     to: [{ email: ownerEmail, name: 'Loïc Barthoulot' }],
-    replyTo: { email: form.email, name: `${form.firstName} ${form.lastName}` },
-    subject: `Nouvelle demande — ${props.config.name} — ${form.firstName} ${form.lastName}`,
+    replyTo: { email: safeEmail, name: `${safeFirst} ${safeLast}`.slice(0, 120) },
+    subject: `Nouvelle demande — ${safeConfigName} — ${safeFirst} ${safeLast}`.slice(0, 180),
     htmlContent: buildHtmlBody()
   }
 
@@ -135,7 +186,21 @@ function reset() {
 <template>
   <LeadSuccess v-if="status === 'success'" :config-name="config.name" @close="emit('close')" />
 
-  <form v-else class="space-y-5" @submit.prevent="submit">
+  <form v-else class="space-y-5" autocomplete="on" novalidate @submit.prevent="submit">
+    <!-- Honeypot — hidden from real users via aria + position. Bots fill it. -->
+    <div aria-hidden="true" class="absolute left-[-9999px] w-px h-px overflow-hidden" tabindex="-1">
+      <label>
+        Site web (laisser vide)
+        <input
+          v-model="form.website"
+          type="text"
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </label>
+    </div>
+
     <div class="rounded-xl bg-bg-900 border border-border-subtle p-4">
       <p class="text-sm text-text-secondary">
         Vous demandez la configuration
@@ -159,6 +224,7 @@ function reset() {
             type="text"
             required
             autocomplete="given-name"
+            maxlength="60"
             class="w-full pl-9 pr-3 py-2.5 bg-bg-900 border border-border-subtle rounded-lg text-text-primary placeholder-text-dim focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition"
           />
         </div>
@@ -170,6 +236,7 @@ function reset() {
           type="text"
           required
           autocomplete="family-name"
+          maxlength="60"
           class="w-full px-3 py-2.5 bg-bg-900 border border-border-subtle rounded-lg text-text-primary placeholder-text-dim focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition"
         />
       </label>
@@ -184,6 +251,7 @@ function reset() {
           type="email"
           required
           autocomplete="email"
+          maxlength="160"
           class="w-full pl-9 pr-3 py-2.5 bg-bg-900 border border-border-subtle rounded-lg text-text-primary placeholder-text-dim focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition"
         />
       </div>
@@ -198,6 +266,8 @@ function reset() {
           type="tel"
           autocomplete="tel"
           placeholder="+41 ..."
+          maxlength="30"
+          pattern="[+\d\s().\-]{6,30}"
           class="w-full pl-9 pr-3 py-2.5 bg-bg-900 border border-border-subtle rounded-lg text-text-primary placeholder-text-dim focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition"
         />
       </div>
@@ -211,6 +281,7 @@ function reset() {
           v-model="form.message"
           rows="3"
           placeholder="Précisions, contraintes, délais..."
+          maxlength="2000"
           class="w-full pl-9 pr-3 py-2.5 bg-bg-900 border border-border-subtle rounded-lg text-text-primary placeholder-text-dim focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition resize-y"
         />
       </div>
