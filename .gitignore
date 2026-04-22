@@ -16,6 +16,9 @@ dist-ssr
 .dev.vars
 .wrangler
 public/sitemap.xml
+playwright-report
+test-results
+.playwright
 
 # Editor directories and files
 .vscode/*

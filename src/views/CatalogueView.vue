@@ -56,10 +56,11 @@ const selectedTiers = ref([])
 const selectedUsages = ref([])
 const sortBy = ref('price_asc')
 
+// arr is the reactive array (refs are unwrapped in template expressions).
 function toggle(arr, value) {
-  const i = arr.value.indexOf(value)
-  if (i >= 0) arr.value.splice(i, 1)
-  else arr.value.push(value)
+  const i = arr.indexOf(value)
+  if (i >= 0) arr.splice(i, 1)
+  else arr.push(value)
 }
 
 const filtered = computed(() => {

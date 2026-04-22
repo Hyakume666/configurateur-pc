@@ -8,7 +8,6 @@ const props = defineProps({
   disabled: { type: Boolean, default: false },
   loading: { type: Boolean, default: false },
   fullWidth: { type: Boolean, default: false },
-  as: { type: String, default: 'button' },
   to: { type: [String, Object], default: null },
   href: { type: String, default: null }
 })
@@ -48,11 +47,12 @@ const sizeClasses = computed(() => {
   }
 })
 
-const computedTag = computed(() => {
-  if (props.to) return 'router-link'
-  if (props.href) return 'a'
-  return props.as
-})
+const allClasses = computed(() => [
+  baseClasses,
+  variantClasses.value,
+  sizeClasses.value,
+  props.fullWidth ? 'w-full' : ''
+])
 
 function handleClick(e) {
   if (props.disabled || props.loading) {
@@ -64,18 +64,10 @@ function handleClick(e) {
 </script>
 
 <template>
-  <component
-    :is="computedTag"
-    :type="computedTag === 'button' ? type : undefined"
+  <RouterLink
+    v-if="to"
     :to="to"
-    :href="href"
-    :disabled="disabled || loading"
-    :class="[
-      baseClasses,
-      variantClasses,
-      sizeClasses,
-      fullWidth ? 'w-full' : ''
-    ]"
+    :class="allClasses"
     v-motion
     :hovered="{ scale: 1.04, transition: { type: 'spring', stiffness: 280, damping: 18 } }"
     :tapped="{ scale: 0.96 }"
@@ -83,5 +75,32 @@ function handleClick(e) {
   >
     <span v-if="loading" class="inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" aria-hidden="true" />
     <slot />
-  </component>
+  </RouterLink>
+
+  <a
+    v-else-if="href"
+    :href="href"
+    :class="allClasses"
+    v-motion
+    :hovered="{ scale: 1.04, transition: { type: 'spring', stiffness: 280, damping: 18 } }"
+    :tapped="{ scale: 0.96 }"
+    @click="handleClick"
+  >
+    <span v-if="loading" class="inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" aria-hidden="true" />
+    <slot />
+  </a>
+
+  <button
+    v-else
+    :type="type"
+    :disabled="disabled || loading"
+    :class="allClasses"
+    v-motion
+    :hovered="{ scale: 1.04, transition: { type: 'spring', stiffness: 280, damping: 18 } }"
+    :tapped="{ scale: 0.96 }"
+    @click="handleClick"
+  >
+    <span v-if="loading" class="inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" aria-hidden="true" />
+    <slot />
+  </button>
 </template>
