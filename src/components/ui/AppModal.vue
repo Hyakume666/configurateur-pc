@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { X } from 'lucide-vue-next'
 
 const props = defineProps({
@@ -11,22 +11,63 @@ const props = defineProps({
 
 const emit = defineEmits(['close'])
 
+const dialogRef = ref(null)
+const previouslyFocused = ref(null)
+
 function close() {
   emit('close')
 }
 
+function getFocusable() {
+  if (!dialogRef.value) return []
+  return Array.from(
+    dialogRef.value.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )
+  )
+}
+
+function trapFocus(e) {
+  const focusable = getFocusable()
+  if (!focusable.length) return
+  const first = focusable[0]
+  const last = focusable[focusable.length - 1]
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault()
+    last.focus()
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault()
+    first.focus()
+  }
+}
+
 function onKey(e) {
-  if (e.key === 'Escape' && props.open) close()
+  if (!props.open) return
+  if (e.key === 'Escape') close()
+  if (e.key === 'Tab') trapFocus(e)
 }
 
 onMounted(() => window.addEventListener('keydown', onKey))
-onUnmounted(() => window.removeEventListener('keydown', onKey))
+onUnmounted(() => {
+  window.removeEventListener('keydown', onKey)
+  document.body.style.overflow = ''
+})
 
 watch(
   () => props.open,
-  (val) => {
+  async (val) => {
     if (typeof document === 'undefined') return
     document.body.style.overflow = val ? 'hidden' : ''
+
+    if (val) {
+      previouslyFocused.value = document.activeElement
+      await nextTick()
+      const focusable = getFocusable()
+      if (focusable.length) focusable[0].focus()
+    } else if (previouslyFocused.value && typeof previouslyFocused.value.focus === 'function') {
+      previouslyFocused.value.focus()
+      previouslyFocused.value = null
+    }
   }
 )
 </script>
@@ -40,6 +81,7 @@ watch(
         @click.self="closeOnBackdrop && close()"
       >
         <div
+          ref="dialogRef"
           v-motion
           :initial="{ opacity: 0, scale: 0.95 }"
           :enter="{ opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 280, damping: 22 } }"
@@ -50,6 +92,7 @@ watch(
           ]"
           role="dialog"
           aria-modal="true"
+          :aria-label="title || undefined"
         >
           <header v-if="title || $slots.header" class="flex items-center justify-between gap-4 px-6 py-4 border-b border-border-subtle">
             <slot name="header">
@@ -58,7 +101,7 @@ watch(
             <button
               type="button"
               class="p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-bg-700 transition cursor-pointer"
-              aria-label="Fermer"
+              aria-label="Fermer la fenêtre"
               @click="close"
             >
               <X class="w-5 h-5" />

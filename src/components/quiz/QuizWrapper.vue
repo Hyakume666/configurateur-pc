@@ -70,7 +70,12 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
   <div class="w-full max-w-5xl mx-auto">
     <header class="mb-10">
       <div class="flex items-center justify-between mb-3 text-sm">
-        <span class="text-text-muted font-mono">
+        <span
+          class="text-text-muted font-mono"
+          role="status"
+          aria-live="polite"
+          :aria-label="`Étape ${store.currentStep} sur ${store.totalSteps}`"
+        >
           Question <span class="text-neon-blue font-semibold">{{ store.currentStep }}</span> / {{ store.totalSteps }}
         </span>
         <button
@@ -82,7 +87,14 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
           Recommencer
         </button>
       </div>
-      <div class="relative h-1.5 w-full bg-bg-700 rounded-full overflow-hidden">
+      <div
+        class="relative h-1.5 w-full bg-bg-700 rounded-full overflow-hidden"
+        role="progressbar"
+        :aria-valuenow="store.progress"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        :aria-label="`Progression du quiz : ${store.progress}%`"
+      >
         <div
           class="absolute inset-y-0 left-0 bg-gradient-to-r from-primary-500 via-neon-blue to-neon-violet rounded-full transition-all duration-500 ease-spring"
           :style="{ width: `${store.progress}%` }"

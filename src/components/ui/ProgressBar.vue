@@ -35,7 +35,14 @@ const colorClass = computed(() => {
       <span class="text-text-secondary font-medium">{{ label }}</span>
       <span v-if="showValue" class="text-text-muted font-mono">{{ Math.round(pct) }}</span>
     </div>
-    <div :class="['relative w-full overflow-hidden bg-bg-700 rounded-full', height]">
+    <div
+      :class="['relative w-full overflow-hidden bg-bg-700 rounded-full', height]"
+      role="progressbar"
+      :aria-valuenow="Math.round(pct)"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      :aria-label="label ? `${label} : ${Math.round(pct)} sur 100` : `Progression : ${Math.round(pct)}%`"
+    >
       <div
         v-motion
         :initial="{ width: '0%' }"

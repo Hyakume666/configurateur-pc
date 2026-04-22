@@ -19,6 +19,14 @@ const navItems = [
 
 <template>
   <div class="min-h-screen flex flex-col bg-bg-950 text-text-primary">
+    <!-- Skip link, visible only when focused via keyboard. -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-neon-blue focus:text-bg-950 focus:font-semibold focus:shadow-neon-blue"
+    >
+      Aller au contenu principal
+    </a>
+
     <!-- HEADER (hidden on quiz for immersion) -->
     <header v-if="!isQuizRoute" class="sticky top-0 z-40 glass border-b border-border-subtle/60">
       <div class="container-page flex items-center justify-between h-16">
@@ -52,7 +60,7 @@ const navItems = [
       </div>
     </header>
 
-    <main class="flex-1">
+    <main id="main-content" class="flex-1" tabindex="-1">
       <RouterView v-slot="{ Component, route: r }">
         <Transition name="page" mode="out-in">
           <component :is="Component" :key="r.fullPath" />
