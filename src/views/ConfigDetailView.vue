@@ -34,15 +34,51 @@ const upgradeAdd = computed(() =>
   total.value - (config.value.totalPrice + config.value.assemblyFee)
 )
 
+const SITE_URL = 'https://pc.loicbarthoulot.ch'
+
+const productJsonLd = computed(() => {
+  if (!config.value) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: config.value.name,
+    description: config.value.tagline,
+    brand: { '@type': 'Brand', name: 'Loïc.config' },
+    sku: config.value.id,
+    category: 'PC Gaming sur mesure',
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'CHF',
+      price: config.value.totalPrice + config.value.assemblyFee,
+      availability: 'https://schema.org/InStock',
+      seller: { '@type': 'Person', name: 'Loïc Barthoulot' },
+      url: `${SITE_URL}/config/${config.value.slug}`
+    }
+  }
+})
+
 useHead({
   title: () => (config.value ? `${config.value.name} — ${config.value.tagline}` : 'Configuration'),
+  link: [
+    { rel: 'canonical', href: () => `${SITE_URL}/config/${props.slug}` }
+  ],
   meta: [
-    {
-      name: 'description',
-      content: () => config.value?.tagline || 'Configuration PC sur mesure'
-    },
+    { name: 'description', content: () => config.value?.tagline || 'Configuration PC sur mesure' },
+    { property: 'og:type', content: 'product' },
+    { property: 'og:url', content: () => `${SITE_URL}/config/${props.slug}` },
     { property: 'og:title', content: () => config.value?.name || 'Configuration' },
-    { property: 'og:description', content: () => config.value?.tagline || '' }
+    { property: 'og:description', content: () => config.value?.tagline || '' },
+    { property: 'og:site_name', content: 'Loïc.config' },
+    { property: 'og:locale', content: 'fr_CH' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: () => config.value?.name || 'Configuration' },
+    { name: 'twitter:description', content: () => config.value?.tagline || '' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: () => JSON.stringify(productJsonLd.value)
+    }
   ]
 })
 

@@ -40,6 +40,18 @@ const routes = [
     meta: { title: 'Admin — Statistiques' }
   },
   {
+    path: '/mentions-legales',
+    name: 'legal',
+    component: () => import('@/views/LegalView.vue'),
+    meta: { title: 'Mentions légales' }
+  },
+  {
+    path: '/confidentialite',
+    name: 'privacy',
+    component: () => import('@/views/PrivacyView.vue'),
+    meta: { title: 'Politique de confidentialité' }
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue'),

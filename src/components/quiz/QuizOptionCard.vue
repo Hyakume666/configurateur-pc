@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
-import * as LucideIcons from 'lucide-vue-next'
 import { Check } from 'lucide-vue-next'
+import { getIcon } from '@/utils/icons'
 
 const props = defineProps({
   option: { type: Object, required: true },
@@ -11,7 +11,7 @@ const props = defineProps({
 
 const emit = defineEmits(['select'])
 
-const Icon = computed(() => LucideIcons[props.option.icon] || LucideIcons.Circle)
+const Icon = computed(() => getIcon(props.option.icon))
 </script>
 
 <template>

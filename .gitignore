@@ -15,6 +15,7 @@ dist-ssr
 .env.local
 .dev.vars
 .wrangler
+public/sitemap.xml
 
 # Editor directories and files
 .vscode/*

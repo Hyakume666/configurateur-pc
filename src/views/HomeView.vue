@@ -19,18 +19,41 @@ import AppButton from '@/components/ui/AppButton.vue'
 import ConfigCard from '@/components/config/ConfigCard.vue'
 import { useConfigs } from '@/composables/useConfigs'
 
+const SITE_URL = 'https://pc.loicbarthoulot.ch'
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Loïc.config',
+  description: 'Configurateur et assembleur de PC gaming sur mesure en Suisse romande',
+  url: SITE_URL,
+  email: 'contact@loicbarthoulot.ch',
+  areaServed: { '@type': 'AdministrativeArea', name: 'Suisse romande' },
+  founder: { '@type': 'Person', name: 'Loïc Barthoulot' },
+  priceRange: 'CHF 690 – 5 650'
+}
+
 useHead({
   title: 'Configurateur PC Gaming Suisse | Loïc Barthoulot',
+  link: [{ rel: 'canonical', href: SITE_URL }],
   meta: [
     {
       name: 'description',
       content:
         'Configurateur PC Gaming sur mesure en Suisse romande. Répondez à 5 questions, obtenez la configuration idéale, assemblage professionnel inclus.'
     },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: SITE_URL },
     { property: 'og:title', content: 'Configurateur PC Gaming Suisse | Loïc Barthoulot' },
+    { property: 'og:description', content: 'Trouvez votre PC gaming parfait en 5 questions. Assemblé en Suisse romande.' },
+    { property: 'og:site_name', content: 'Loïc.config' },
+    { property: 'og:locale', content: 'fr_CH' },
+    { name: 'twitter:card', content: 'summary_large_image' }
+  ],
+  script: [
     {
-      property: 'og:description',
-      content: 'Trouvez votre PC gaming parfait en 5 questions. Assemblé en Suisse romande.'
+      type: 'application/ld+json',
+      children: JSON.stringify(orgJsonLd)
     }
   ]
 })

@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { RouterView, RouterLink, useRoute } from 'vue-router'
 import { Cpu, Mail } from 'lucide-vue-next'
 import AppToast from '@/components/ui/AppToast.vue'
+import StorageNotice from '@/components/ui/StorageNotice.vue'
 
 const route = useRoute()
 
@@ -93,14 +94,23 @@ const navItems = [
         </div>
       </div>
       <div class="border-t border-border-subtle/60">
-        <div class="container-page py-4 text-xs text-text-dim flex flex-wrap justify-between gap-2">
+        <div class="container-page py-4 text-xs text-text-dim flex flex-wrap items-center justify-between gap-3">
           <span>© {{ new Date().getFullYear() }} Loïc Barthoulot — Tous droits réservés</span>
-          <span>Liens d'achat sponsorisés</span>
+          <nav class="flex items-center gap-4">
+            <RouterLink :to="{ name: 'legal' }" class="hover:text-neon-blue transition">
+              Mentions légales
+            </RouterLink>
+            <RouterLink :to="{ name: 'privacy' }" class="hover:text-neon-blue transition">
+              Confidentialité
+            </RouterLink>
+            <span class="text-text-dim/70">Liens d'achat sponsorisés</span>
+          </nav>
         </div>
       </div>
     </footer>
 
     <AppToast />
+    <StorageNotice />
   </div>
 </template>
 
