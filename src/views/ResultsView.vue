@@ -10,30 +10,25 @@ import ConfigCardFeatured from '@/components/config/ConfigCardFeatured.vue'
 import ConfigCard from '@/components/config/ConfigCard.vue'
 import AppButton from '@/components/ui/AppButton.vue'
 
-const props = defineProps({
-  showAll: { type: Boolean, default: false }
-})
-
 const router = useRouter()
 const quizStore = useQuizStore()
 const configStore = useConfigStore()
 const { rankConfigs, summarizeAnswers } = useQuiz()
 
 useHead({
-  title: () => (props.showAll ? 'Toutes nos configurations PC' : 'Vos configurations recommandées')
+  title: 'Vos configurations recommandées | Loïc.config'
 })
 
 const matches = computed(() => {
-  if (props.showAll) return configStore.allConfigsSorted
   if (configStore.topMatches.length) return configStore.topMatches
   if (quizStore.completed) return rankConfigs(quizStore.answers)
   return []
 })
 
-const summary = computed(() => (props.showAll ? [] : summarizeAnswers(quizStore.answers)))
+const summary = computed(() => summarizeAnswers(quizStore.answers))
 
 onMounted(() => {
-  if (!props.showAll && !quizStore.completed && !configStore.topMatches.length) {
+  if (!quizStore.completed && !configStore.topMatches.length) {
     router.replace({ name: 'quiz' })
   }
 })
@@ -51,12 +46,12 @@ function restart() {
       <div class="container-page relative">
         <div class="max-w-3xl">
           <span class="text-xs uppercase tracking-widest text-neon-blue font-semibold">
-            {{ showAll ? 'Catalogue complet' : 'Quiz terminé' }}
+            Quiz terminé
           </span>
           <h1 class="heading-display text-3xl sm:text-5xl text-text-primary mt-2 mb-4">
-            {{ showAll ? 'Toutes nos configurations' : 'Votre configuration idéale' }}
+            Votre configuration idéale
           </h1>
-          <p v-if="!showAll" class="text-text-secondary mb-4">
+          <p class="text-text-secondary mb-4">
             Voici les 3 meilleures configurations pour vous, basées sur vos réponses.
           </p>
           <div v-if="summary.length" class="flex flex-wrap gap-2">
@@ -73,23 +68,13 @@ function restart() {
     </header>
 
     <main class="container-page">
-      <div v-if="!showAll && matches[0]" class="mb-12">
-        <ConfigCardFeatured
-          :config="matches[0]"
-          :reasons="matches[0]._reasons || []"
-        />
+      <div v-if="matches[0]" class="mb-12">
+        <ConfigCardFeatured :config="matches[0]" :reasons="matches[0]._reasons || []" />
       </div>
 
-      <div
-        :class="[
-          'grid gap-5',
-          showAll
-            ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-            : 'grid-cols-1 md:grid-cols-2'
-        ]"
-      >
+      <div class="grid gap-5 grid-cols-1 md:grid-cols-2">
         <ConfigCard
-          v-for="(c, i) in showAll ? matches : matches.slice(1)"
+          v-for="(c, i) in matches.slice(1)"
           :key="c.id"
           :config="c"
           :index="i"
@@ -102,16 +87,13 @@ function restart() {
       </div>
 
       <div class="mt-16 flex flex-wrap items-center justify-center gap-3">
-        <AppButton v-if="!showAll" variant="ghost" @click="restart">
+        <AppButton variant="ghost" @click="restart">
           <RotateCcw class="w-4 h-4" />
           Retenter le quiz
         </AppButton>
-        <AppButton v-if="!showAll" :to="{ name: 'configs' }" variant="secondary">
+        <AppButton :to="{ name: 'configs' }" variant="secondary">
           <Layers class="w-4 h-4" />
           Voir toutes les configs
-        </AppButton>
-        <AppButton v-if="showAll" :to="{ name: 'quiz' }" variant="primary">
-          Faire le quiz personnalisé
         </AppButton>
       </div>
     </main>

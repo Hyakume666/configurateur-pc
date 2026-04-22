@@ -22,8 +22,7 @@ const routes = [
   {
     path: '/configs',
     name: 'configs',
-    component: () => import('@/views/ResultsView.vue'),
-    props: { showAll: true },
+    component: () => import('@/views/CatalogueView.vue'),
     meta: { title: 'Toutes nos configurations PC' }
   },
   {
