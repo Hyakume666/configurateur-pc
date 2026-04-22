@@ -1,16 +1,21 @@
 <script setup>
 import { computed } from 'vue'
-import { ArrowRight, Check } from 'lucide-vue-next'
+import { ArrowRight, Check, GitCompare } from 'lucide-vue-next'
 import AppButton from '@/components/ui/AppButton.vue'
 import AppBadge from '@/components/ui/AppBadge.vue'
 import PerformanceBars from './PerformanceBars.vue'
 import { formatPriceCHF } from '@/composables/useToast'
+import { useCompareStore } from '@/stores/compareStore'
 
 const props = defineProps({
   config: { type: Object, required: true },
   index: { type: Number, default: 0 },
   compact: { type: Boolean, default: false }
 })
+
+const compare = useCompareStore()
+const inCompare = computed(() => compare.has(props.config.slug))
+const cantAdd = computed(() => !inCompare.value && compare.isFull)
 
 const total = computed(() => props.config.totalPrice + props.config.assemblyFee)
 
@@ -70,13 +75,32 @@ const badgeVariant = computed(() => {
       </li>
     </ul>
 
-    <AppButton
-      :to="{ name: 'config-detail', params: { slug: config.slug } }"
-      variant="secondary"
-      full-width
-    >
-      Voir les détails
-      <ArrowRight class="w-4 h-4" />
-    </AppButton>
+    <div class="flex items-center gap-2">
+      <AppButton
+        :to="{ name: 'config-detail', params: { slug: config.slug } }"
+        variant="secondary"
+        class="flex-1"
+      >
+        Détails
+        <ArrowRight class="w-4 h-4" />
+      </AppButton>
+      <button
+        type="button"
+        :class="[
+          'p-2.5 rounded-lg border transition cursor-pointer',
+          inCompare
+            ? 'bg-neon-blue/15 border-neon-blue text-neon-blue'
+            : 'bg-bg-700 border-border-subtle text-text-secondary hover:border-primary-500/40',
+          cantAdd ? 'opacity-50 cursor-not-allowed' : ''
+        ]"
+        :disabled="cantAdd"
+        :aria-pressed="inCompare"
+        :aria-label="inCompare ? 'Retirer du comparateur' : 'Ajouter au comparateur'"
+        :title="cantAdd ? 'Maximum 3 configurations' : inCompare ? 'Retirer du comparateur' : 'Ajouter au comparateur'"
+        @click="compare.toggle(config.slug)"
+      >
+        <GitCompare class="w-4 h-4" />
+      </button>
+    </div>
   </article>
 </template>

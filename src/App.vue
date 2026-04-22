@@ -4,6 +4,7 @@ import { RouterView, RouterLink, useRoute } from 'vue-router'
 import { Cpu, Mail } from 'lucide-vue-next'
 import AppToast from '@/components/ui/AppToast.vue'
 import StorageNotice from '@/components/ui/StorageNotice.vue'
+import CompareTray from '@/components/config/CompareTray.vue'
 
 const route = useRoute()
 
@@ -111,6 +112,7 @@ const navItems = [
 
     <AppToast />
     <StorageNotice />
+    <CompareTray v-if="!isQuizRoute" />
   </div>
 </template>
 

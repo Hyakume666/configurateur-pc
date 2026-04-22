@@ -26,6 +26,12 @@ const routes = [
     meta: { title: 'Toutes nos configurations PC' }
   },
   {
+    path: '/comparateur',
+    name: 'compare',
+    component: () => import('@/views/CompareView.vue'),
+    meta: { title: 'Comparer des configurations' }
+  },
+  {
     path: '/config/:slug',
     name: 'config-detail',
     component: () => import('@/views/ConfigDetailView.vue'),
