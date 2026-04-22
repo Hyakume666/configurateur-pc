@@ -9,6 +9,7 @@ import AppButton from '@/components/ui/AppButton.vue'
 import AppBadge from '@/components/ui/AppBadge.vue'
 import AppCard from '@/components/ui/AppCard.vue'
 import AppModal from '@/components/ui/AppModal.vue'
+import AnimatedPrice from '@/components/ui/AnimatedPrice.vue'
 import PerformanceRadar from '@/components/config/PerformanceRadar.vue'
 import ComponentRow from '@/components/config/ComponentRow.vue'
 import UpgradeToggle from '@/components/config/UpgradeToggle.vue'
@@ -149,7 +150,7 @@ function toggleUpgrade(id) {
                 <div class="border-t border-border-subtle pt-3 mt-3 flex items-center justify-between">
                   <span class="font-semibold text-text-primary">Total</span>
                   <span class="text-2xl font-bold text-gradient-neon font-mono">
-                    {{ formatPriceCHF(total) }}
+                    <AnimatedPrice :value="total" />
                   </span>
                 </div>
               </div>
@@ -311,7 +312,9 @@ function toggleUpgrade(id) {
         <div class="mt-8 flex flex-wrap items-center justify-between gap-4 p-5 rounded-2xl bg-bg-800 border border-border-default">
           <div>
             <div class="text-xs uppercase tracking-wide text-text-muted">Total avec options</div>
-            <div class="text-3xl font-bold text-gradient-neon font-mono">{{ formatPriceCHF(total) }}</div>
+            <div class="text-3xl font-bold text-gradient-neon font-mono">
+              <AnimatedPrice :value="total" />
+            </div>
           </div>
           <AppButton variant="primary" size="lg" @click="showLeadModal = true">
             Demander un devis avec ces options
