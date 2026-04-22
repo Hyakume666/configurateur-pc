@@ -17,6 +17,7 @@ import {
 import { useHead } from '@vueuse/head'
 import AppButton from '@/components/ui/AppButton.vue'
 import ConfigCard from '@/components/config/ConfigCard.vue'
+import HeroVisual from '@/components/HeroVisual.vue'
 import { useConfigs } from '@/composables/useConfigs'
 
 const SITE_URL = 'https://pc.loicbarthoulot.ch'
@@ -123,7 +124,7 @@ function toggle(i) {
         <div class="absolute top-2/3 right-1/4 w-2 h-2 bg-neon-blue rounded-full animate-particles-drift" style="animation-delay: -9s" />
       </div>
 
-      <div class="container-page relative z-10 py-20 sm:py-28">
+      <div class="container-page relative z-10 py-20 sm:py-28 grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-16 items-center">
         <div
           v-motion
           :initial="{ opacity: 0, y: 30 }"
@@ -166,6 +167,15 @@ function toggle(i) {
               <span>{{ b.label }}</span>
             </div>
           </div>
+        </div>
+
+        <div
+          v-motion
+          :initial="{ opacity: 0, scale: 0.9 }"
+          :enter="{ opacity: 1, scale: 1, transition: { duration: 700, delay: 200 } }"
+          class="hidden lg:block"
+        >
+          <HeroVisual />
         </div>
       </div>
 
