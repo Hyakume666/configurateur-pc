@@ -27,14 +27,12 @@ npm install
 cp .env.example .env
 ```
 
-Éditez `.env` :
+Variables :
 
-```env
-VITE_BREVO_API_KEY=xkeysib-...
-VITE_OWNER_EMAIL=loic@example.ch
-```
+- **Front (Vite)** : `VITE_LEAD_API_URL=/api/lead` (défaut). Mettre vide → mode démo.
+- **Serveur (Cloudflare)** : `BREVO_API_KEY`, `OWNER_EMAIL`, `ALLOWED_ORIGIN` — configurés dans le dashboard Cloudflare Pages, jamais dans `.env` local.
 
-> Sans clé API, le formulaire de lead reste fonctionnel en mode démo (simule la soumission). Idéal pour le développement local.
+> En `npm run dev`, le formulaire est en mode démo (pas de Pages Function). Pour tester le proxy en local : `wrangler pages dev dist` (voir section déploiement).
 
 ## Scripts
 
@@ -164,47 +162,90 @@ Aucune dépendance externe. Chaque clic sur un bouton revendeur est stocké en `
 
 La page `/admin` affiche les stats agrégées (clics par revendeur, top composants, série temporelle 30j, vues par config).
 
-## Brevo Transactional Email
+## Architecture lead form
 
-Le formulaire `LeadForm` envoie un POST direct vers `https://api.brevo.com/v3/smtp/email` avec la clé API en header `api-key`.
+Le formulaire `LeadForm` POST vers `/api/lead` (relatif). En production sur Cloudflare Pages, cet endpoint est servi par la **Pages Function** [`functions/api/lead.js`](functions/api/lead.js) qui :
 
-⚠️ **Sécurité** : exposer une clé API Brevo côté front est risqué. En production, configurer la clé API en mode "transactional only" et restreindre les IPs autorisées dans le dashboard Brevo, ou passer par un proxy/serverless function.
+1. Vérifie l'origine (`ALLOWED_ORIGIN`)
+2. Limite la taille du body (16 KB)
+3. Valide tous les champs (email/name/phone regex stricts, slug whitelist, prix borné)
+4. Détecte le honeypot `website` côté serveur
+5. Rate-limit 5 envois/h par IP (in-memory par isolate Worker)
+6. Construit le HTML email avec escape complet
+7. Relaie vers Brevo avec `BREVO_API_KEY` (secret serveur, jamais exposé)
 
-## Déploiement
+La clé Brevo est en variable d'environnement Cloudflare (chiffrée), elle n'apparaît jamais dans le bundle client.
 
-### Vercel
+## Déploiement — Cloudflare Pages + Brevo + DNS Infomaniak
+
+### 1. Pousser le code sur GitHub
+
+Le repo doit être public ou bien Cloudflare doit avoir accès via app GitHub.
+
+### 2. Créer compte Cloudflare
+
+[https://dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up) — gratuit, juste email + password.
+
+### 3. Connecter le repo à Cloudflare Pages
+
+1. Dashboard Cloudflare → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
+2. Autoriser GitHub, sélectionner le repo `configurateur-pc`
+3. **Build settings** :
+   - Framework preset : **Vue (Vite)**
+   - Build command : `npm run build`
+   - Build output directory : `dist`
+   - Root directory : *(laisser vide si repo à la racine)*
+4. **Environment variables** (production) :
+   ```
+   BREVO_API_KEY        = xkeysib-...           ← Encrypted (clic "Encrypt")
+   OWNER_EMAIL          = loic@loicbarthoulot.ch
+   ALLOWED_ORIGIN       = https://pc.loicbarthoulot.ch
+   ```
+5. **Save and Deploy** → premier build (~2 min)
+
+L'URL temporaire sera `<projet>.pages.dev`. Vérifier que ça marche.
+
+### 4. Domaine custom `pc.loicbarthoulot.ch`
+
+#### Côté Cloudflare Pages
+1. Projet Pages → **Custom domains** → **Set up a custom domain**
+2. Saisir `pc.loicbarthoulot.ch` → Continue
+3. Cloudflare affiche un enregistrement **CNAME** à créer (du type `<projet>.pages.dev`)
+
+#### Côté Infomaniak (DNS)
+1. Manager Infomaniak → **Web & Domaines** → **Domaines** → cliquer `loicbarthoulot.ch` → **Modifier la zone DNS**
+2. Ajouter un enregistrement :
+   - Type : **CNAME**
+   - Sous-domaine : `pc`
+   - Cible : `<projet>.pages.dev` (valeur fournie par Cloudflare)
+   - TTL : 3600 (par défaut)
+3. Sauvegarder. Propagation DNS : 5 min à 1h.
+
+#### Retour Cloudflare Pages
+- L'onglet Custom domains passera de "Pending" → "Active" automatiquement
+- Cloudflare provisionne aussi le certificat TLS Let's Encrypt (gratuit)
+
+### 5. Tester en live
+
+`https://pc.loicbarthoulot.ch` → quiz, choix d'une config, formulaire → email reçu sur `OWNER_EMAIL`.
+
+Si erreur 502 : vérifier les variables d'env Cloudflare et la clé Brevo.
+Si erreur 403 : `ALLOWED_ORIGIN` ne correspond pas à l'URL réelle.
+
+### 6. Déploiements futurs
+
+Tout `git push` sur `main` → build + deploy auto (~1-2 min). Branches autres → preview environment URL séparée.
+
+### Développement local du proxy lead
+
+Pour tester `functions/api/lead.js` en local, installer Wrangler :
 
 ```bash
-npm i -g vercel
-vercel
+npm i -g wrangler
+wrangler pages dev dist --compatibility-date=2024-09-01
 ```
 
-Configurer dans le dashboard Vercel :
-
-- **Build command** : `npm run build`
-- **Output directory** : `dist`
-- **Environment variables** : `VITE_BREVO_API_KEY`, `VITE_OWNER_EMAIL`
-
-Ajouter un `vercel.json` pour le SPA fallback :
-
-```json
-{
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
-}
-```
-
-### GitHub Pages
-
-Ajouter dans `vite.config.js` :
-
-```js
-export default defineConfig({
-  base: '/configurateur-pc/',
-  // ...
-})
-```
-
-Build + push vers une branche `gh-pages`.
+Wrangler servira le build + Pages Functions sur `http://localhost:8788`. Les variables d'env locales : créer `.dev.vars` à la racine avec `BREVO_API_KEY=...` etc (gitignored automatiquement).
 
 ## Accessibilité
 

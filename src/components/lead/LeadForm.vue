@@ -32,14 +32,9 @@ const EMAIL_RE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]
 const NAME_RE = /^[\p{L}\p{M}'\- ]{1,60}$/u
 const PHONE_RE = /^[+\d\s().-]{6,30}$/
 
-function escapeHtml(s = '') {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
-}
+// Endpoint for the lead proxy. Default is Cloudflare Pages Function at /api/lead.
+// Set VITE_LEAD_API_URL='' to force demo mode (no network call).
+const LEAD_API_URL = import.meta.env.VITE_LEAD_API_URL ?? '/api/lead'
 
 function stripCtrl(s = '') {
   return String(s).replace(/[\r\n\t\0]/g, ' ').trim()
@@ -79,43 +74,6 @@ const isValid = computed(() => {
   return true
 })
 
-function buildHtmlBody() {
-  const e = escapeHtml
-  const cfgName = e(props.config.name)
-  const cfgTagline = e(props.config.tagline)
-
-  const upgradesHtml = selectedUpgradesDetails.value.length
-    ? `<ul>${selectedUpgradesDetails.value
-        .map((u) => `<li>${e(u.name)} (+${e(formatPriceCHF(u.priceAdd))})</li>`)
-        .join('')}</ul>`
-    : '<em>Aucune option supplémentaire</em>'
-
-  const excludedHtml = form.hasSomeComponents && form.excludedTypes.length
-    ? `<p><strong>Composants déjà possédés :</strong> ${e(form.excludedTypes.join(', '))}</p>`
-    : ''
-
-  const messageHtml = form.message
-    ? `<hr/><h3>Message du client</h3><p>${escapeHtml(stripCtrl(form.message)).replace(/\n/g, '<br/>')}</p>`
-    : ''
-
-  return `
-    <h2>Nouvelle demande — ${cfgName}</h2>
-    <p><strong>Client :</strong> ${e(stripCtrl(form.firstName))} ${e(stripCtrl(form.lastName))}</p>
-    <p><strong>Email :</strong> ${e(stripCtrl(form.email))}</p>
-    ${form.phone ? `<p><strong>Téléphone :</strong> ${e(stripCtrl(form.phone))}</p>` : ''}
-    <hr/>
-    <h3>Configuration demandée</h3>
-    <p><strong>${cfgName}</strong> — ${cfgTagline}</p>
-    <p><strong>Prix de base :</strong> ${e(formatPriceCHF(props.config.totalPrice + props.config.assemblyFee))}</p>
-    <p><strong>Total avec options :</strong> ${e(formatPriceCHF(totalWithUpgrades.value))}</p>
-    <h4>Options sélectionnées</h4>
-    ${upgradesHtml}
-    ${excludedHtml}
-    <p><strong>Souhaite que je commande les composants :</strong> ${form.wantsSourcing ? 'Oui' : 'Non'}</p>
-    ${messageHtml}
-  `
-}
-
 async function submit() {
   if (!isValid.value || status.value === 'loading') return
 
@@ -134,41 +92,49 @@ async function submit() {
   status.value = 'loading'
   error.value = null
 
-  const apiKey = import.meta.env.VITE_BREVO_API_KEY
-  const ownerEmail = import.meta.env.VITE_OWNER_EMAIL
-
-  const safeFirst = stripCtrl(form.firstName)
-  const safeLast = stripCtrl(form.lastName)
-  const safeEmail = stripCtrl(form.email)
-  const safeConfigName = stripCtrl(props.config.name)
-
   const payload = {
-    sender: { email: ownerEmail || 'noreply@configurateur-pc.ch', name: 'Configurateur PC' },
-    to: [{ email: ownerEmail, name: 'Loïc Barthoulot' }],
-    replyTo: { email: safeEmail, name: `${safeFirst} ${safeLast}`.slice(0, 120) },
-    subject: `Nouvelle demande — ${safeConfigName} — ${safeFirst} ${safeLast}`.slice(0, 180),
-    htmlContent: buildHtmlBody()
+    firstName: stripCtrl(form.firstName),
+    lastName: stripCtrl(form.lastName),
+    email: stripCtrl(form.email),
+    phone: form.phone ? stripCtrl(form.phone) : '',
+    message: form.message || '',
+    wantsSourcing: !!form.wantsSourcing,
+    excludedTypes: form.hasSomeComponents ? form.excludedTypes : [],
+    configSlug: props.config.slug,
+    configName: props.config.name,
+    totalPrice: totalWithUpgrades.value,
+    upgrades: selectedUpgradesDetails.value.map((u) => ({
+      id: u.id,
+      name: u.name,
+      priceAdd: u.priceAdd
+    })),
+    website: form.website // honeypot relayed; server also rejects if filled
   }
 
-  if (!apiKey || !ownerEmail) {
-    console.warn('[LeadForm] VITE_BREVO_API_KEY ou VITE_OWNER_EMAIL manquant — mode démo, soumission simulée.')
-    setTimeout(() => (status.value = 'success'), 800)
+  // Demo mode: empty endpoint => simulate success.
+  if (!LEAD_API_URL) {
+    console.warn('[LeadForm] VITE_LEAD_API_URL vide — mode démo, soumission simulée.')
+    setTimeout(() => (status.value = 'success'), 600)
     return
   }
 
   try {
-    const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+    const res = await fetch(LEAD_API_URL, {
       method: 'POST',
-      headers: {
-        'api-key': apiKey,
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(payload)
     })
     if (!res.ok) {
-      const body = await res.text()
-      throw new Error(`Brevo ${res.status}: ${body}`)
+      let detail = ''
+      try {
+        const body = await res.json()
+        detail = body.error || body.details?.join(', ') || ''
+      } catch {
+        detail = `HTTP ${res.status}`
+      }
+      if (res.status === 429) throw new Error('Trop de tentatives. Réessayez dans 1h.')
+      if (res.status === 400) throw new Error(`Champs invalides : ${detail}`)
+      throw new Error(`Erreur serveur (${res.status}): ${detail}`)
     }
     status.value = 'success'
   } catch (e) {
