@@ -152,6 +152,42 @@ Le `slug` doit être unique : il devient l'URL `/config/<slug>`.
 
 Les 3 configs avec le score le plus élevé sont retournées.
 
+## Liens d'affiliation — workflow
+
+Chaque composant dans [`src/data/components.json`](src/data/components.json) a un objet `affiliateLinks` :
+
+```json
+"affiliateLinks": {
+  "ldlc": "https://www.ldlc.com/fiche/PB00601234.html",
+  "digitec": "https://www.digitec.ch/fr/s1/product/.../12345678",
+  "amazon": "https://www.amazon.fr/dp/B0CXZL3W4F"
+}
+```
+
+Deux modes pris en charge automatiquement par [`src/utils/affiliateUrl.js`](src/utils/affiliateUrl.js) :
+
+1. **URL directe (recommandé)** — colle la fiche produit complète. La fonction d'affiliation ajoute automatiquement le paramètre `?affil=` ou `?tag=` du retailer.
+2. **Recherche fallback** — si l'URL n'est pas une `https://...` valide, le système construit une URL de recherche du type `digitec.ch/search?q=<nom du composant>` qui débouche toujours sur des résultats valides.
+
+### Migration vers de vraies URLs
+
+Pour chaque composant, ouvre `components.json` et remplace les URLs de recherche par les fiches produit réelles :
+
+1. Va sur `digitec.ch`, cherche le composant exact
+2. Ouvre la fiche produit, copie l'URL canonique
+3. Colle dans `affiliateLinks.digitec`
+4. Idem pour LDLC et Amazon (si pertinent — Amazon.ch a souvent un catalogue plus restreint en composants PC)
+
+Pas besoin de redéployer côté code : Cloudflare Pages rebuild automatique sur `git push`.
+
+### Affiliation côté retailer
+
+- **LDLC** — programme via [Awin](https://www.awin.com) (anciennement Affiliate Window) ou direct LDLC. Param attendu : `?affil=<id>`
+- **Digitec / Galaxus** — programme [Galaxus Partners](https://www.galaxus.ch/fr/page/conditions-de-participation-au-programme-d-affiliation-galaxus-12977). Param : `?affil=<id>`
+- **Amazon.ch** — Amazon Associates (compte amazon.fr accepté pour amazon.ch). Param : `?tag=<id>-21`
+
+Mets les vrais paramètres dans [`src/data/retailers.json`](src/data/retailers.json) une fois les comptes activés.
+
 ## Tracking affilié
 
 Aucune dépendance externe. Chaque clic sur un bouton revendeur est stocké en `localStorage` sous la clé `affiliate_clicks` (max 500 derniers événements). Format :

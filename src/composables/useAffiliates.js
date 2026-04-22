@@ -1,3 +1,5 @@
+import { buildAffiliateUrl } from '@/utils/affiliateUrl'
+
 const STORAGE_KEY = 'affiliate_clicks'
 const MAX_EVENTS = 500
 
@@ -43,13 +45,6 @@ export function useAffiliates() {
     } catch {
       /* ignore */
     }
-  }
-
-  function buildAffiliateUrl(component, retailer) {
-    const link = component?.affiliateLinks?.[retailer.id]
-    if (!link) return retailer.baseUrl
-    if (link.includes('?')) return `${link}&${retailer.affiliateParam.slice(1)}`
-    return `${link}${retailer.affiliateParam}`
   }
 
   return { trackClick, getEvents, clearEvents, buildAffiliateUrl }
