@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ldlc",
+    "name": "LDLC",
+    "logoPath": "/src/assets/retailers/ldlc.svg",
+    "baseUrl": "https://www.ldlc.com",
+    "affiliateParam": "?affil=loicbarthoulot",
+    "color": "#FF6B00"
+  },
+  {
+    "id": "digitec",
+    "name": "Digitec",
+    "logoPath": "/src/assets/retailers/digitec.svg",
+    "baseUrl": "https://www.digitec.ch",
+    "affiliateParam": "?affil=loicbarthoulot",
+    "color": "#E31E24"
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon.ch",
+    "logoPath": "/src/assets/retailers/amazon.svg",
+    "baseUrl": "https://www.amazon.fr",
+    "affiliateParam": "?tag=loicbart-21",
+    "color": "#FF9900"
+  }
+]

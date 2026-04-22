@@ -1,0 +1,340 @@
+[
+  {
+    "id": "essentiel",
+    "slug": "l-essentiel",
+    "name": "L'Essentiel",
+    "tier": "budget",
+    "usage": ["office", "fps"],
+    "tagline": "Parfait pour débuter, naviguer et travailler sans ralentissements",
+    "totalPrice": 690,
+    "assemblyFee": 120,
+    "performanceScore": { "gaming": 42, "creation": 35, "office": 88, "value": 90, "future": 35 },
+    "components": [
+      "cpu_ryzen_5_5600",
+      "gpu_rx_6600",
+      "ram_16_ddr4_3200",
+      "ssd_500_pcie3",
+      "mb_msi_b550a_pro",
+      "psu_bequiet_550w",
+      "case_fractal_focus2"
+    ],
+    "pros": [
+      "Excellent rapport qualité/prix",
+      "Silencieux au repos",
+      "Idéal pour un premier PC"
+    ],
+    "cons": ["Limité pour les jeux AAA récents en high settings"],
+    "targetGames": [
+      { "name": "Valorant", "fps": "200+ FPS", "settings": "Low 1080p" },
+      { "name": "CS2", "fps": "150+ FPS", "settings": "Medium 1080p" },
+      { "name": "League of Legends", "fps": "300+ FPS", "settings": "High 1080p" }
+    ],
+    "badge": null,
+    "upgrades": [
+      {
+        "id": "ram_32",
+        "name": "Passer à 32GB RAM",
+        "description": "Doubler la RAM pour multitâche confortable et longévité",
+        "priceAdd": 55,
+        "componentReplaces": "ram_16_ddr4_3200"
+      },
+      {
+        "id": "ssd_1tb",
+        "name": "SSD 1TB au lieu de 500GB",
+        "description": "Plus d'espace pour vos jeux et fichiers",
+        "priceAdd": 40,
+        "componentReplaces": "ssd_500_pcie3"
+      }
+    ]
+  },
+  {
+    "id": "gaming_entry",
+    "slug": "gaming-entry",
+    "name": "Gaming Entry",
+    "tier": "mid",
+    "usage": ["fps", "rpg"],
+    "tagline": "Gaming 1080p fluide sans se ruiner",
+    "totalPrice": 1020,
+    "assemblyFee": 150,
+    "performanceScore": { "gaming": 62, "creation": 48, "office": 92, "value": 85, "future": 55 },
+    "components": [
+      "cpu_ryzen_5_7600",
+      "gpu_rtx_4060",
+      "ram_16_ddr5_5200",
+      "ssd_1tb_pcie4",
+      "mb_msi_b650p_wifi",
+      "psu_corsair_rm650x",
+      "case_lianli_lancool205"
+    ],
+    "pros": [
+      "DDR5 moderne et évolutif",
+      "RTX 4060 solide en 1080p",
+      "Refroidissement excellent"
+    ],
+    "cons": [
+      "Monter en 1440p nécessitera un upgrade GPU",
+      "8GB VRAM limite à terme"
+    ],
+    "targetGames": [
+      { "name": "Fortnite", "fps": "165+ FPS", "settings": "High 1080p" },
+      { "name": "Baldur's Gate 3", "fps": "60+ FPS", "settings": "Ultra 1080p" },
+      { "name": "Cyberpunk 2077", "fps": "60+ FPS", "settings": "High 1080p" }
+    ],
+    "badge": null,
+    "upgrades": [
+      {
+        "id": "ram_32_ddr5",
+        "name": "Passer à 32GB DDR5",
+        "description": "Plus de RAM pour streaming + jeu simultané",
+        "priceAdd": 60,
+        "componentReplaces": "ram_16_ddr5_5200"
+      }
+    ]
+  },
+  {
+    "id": "sweet_spot",
+    "slug": "sweet-spot",
+    "name": "Sweet Spot",
+    "tier": "mid",
+    "usage": ["fps", "rpg"],
+    "tagline": "Le meilleur équilibre performance/prix du marché actuel",
+    "totalPrice": 1520,
+    "assemblyFee": 150,
+    "performanceScore": { "gaming": 78, "creation": 65, "office": 95, "value": 92, "future": 70 },
+    "components": [
+      "cpu_ryzen_5_7600x",
+      "gpu_rtx_4070_super",
+      "ram_32_ddr5_5600",
+      "ssd_1tb_pcie4",
+      "mb_asus_tuf_b650e",
+      "psu_corsair_rm750x",
+      "case_fractal_north"
+    ],
+    "pros": [
+      "32GB DDR5 pour les prochaines années",
+      "1440p Ultra sans effort",
+      "Polyvalent gaming + création"
+    ],
+    "cons": ["Pas le top pour le 4K natif"],
+    "targetGames": [
+      { "name": "Cyberpunk 2077", "fps": "80+ FPS", "settings": "Ultra 1440p" },
+      { "name": "Baldur's Gate 3", "fps": "80+ FPS", "settings": "Ultra 1440p" },
+      { "name": "Overwatch 2", "fps": "240+ FPS", "settings": "Ultra 1080p" }
+    ],
+    "badge": "Meilleur rapport Q/P",
+    "upgrades": [
+      {
+        "id": "ssd_2tb",
+        "name": "SSD 2TB au lieu de 1TB",
+        "description": "Plus d'espace pour les jeux récents",
+        "priceAdd": 100,
+        "componentReplaces": "ssd_1tb_pcie4"
+      },
+      {
+        "id": "gpu_4070_ti",
+        "name": "Upgrade GPU RTX 4070 Ti Super",
+        "description": "Plus de VRAM, viser le 4K confortablement",
+        "priceAdd": 230,
+        "componentReplaces": "gpu_rtx_4070_super"
+      }
+    ]
+  },
+  {
+    "id": "createur_pro",
+    "slug": "createur-pro",
+    "name": "Créateur Pro",
+    "tier": "high",
+    "usage": ["creation", "workstation"],
+    "tagline": "Montage vidéo 4K, rendu 3D et streaming sans compromis",
+    "totalPrice": 2350,
+    "assemblyFee": 180,
+    "performanceScore": { "gaming": 80, "creation": 95, "office": 98, "value": 70, "future": 85 },
+    "components": [
+      "cpu_ryzen_9_7900x",
+      "gpu_rtx_4070_ti_super",
+      "ram_64_ddr5_6000",
+      "ssd_2tb_pcie4",
+      "mb_asus_proart_x670e",
+      "psu_seasonic_gx850",
+      "case_fractal_torrent"
+    ],
+    "pros": [
+      "64GB DDR5 pour du multitâche lourd",
+      "Encodage NVENC ultra-rapide",
+      "Excellent pour le streaming 4K"
+    ],
+    "cons": ["Overkill si usage purement gaming", "Prix élevé"],
+    "targetGames": [
+      { "name": "DaVinci Resolve 4K", "fps": "Temps réel", "settings": "Édition fluide" },
+      { "name": "Blender", "fps": "Rendu rapide", "settings": "Cycles GPU" },
+      { "name": "Premiere Pro", "fps": "Export accéléré", "settings": "H.265 hardware" }
+    ],
+    "badge": null,
+    "upgrades": [
+      {
+        "id": "gpu_4090",
+        "name": "Upgrade GPU RTX 4090",
+        "description": "Pour le rendu 3D et l'IA générative",
+        "priceAdd": 1020,
+        "componentReplaces": "gpu_rtx_4070_ti_super"
+      }
+    ]
+  },
+  {
+    "id": "fhd_warrior",
+    "slug": "full-hd-warrior",
+    "name": "Full HD Warrior",
+    "tier": "high",
+    "usage": ["fps"],
+    "tagline": "240Hz+ en compétitif, dominez vos adversaires",
+    "totalPrice": 2780,
+    "assemblyFee": 180,
+    "performanceScore": { "gaming": 92, "creation": 75, "office": 96, "value": 65, "future": 80 },
+    "components": [
+      "cpu_intel_i7_14700k",
+      "gpu_rtx_4080_super",
+      "ram_32_ddr5_6400",
+      "ssd_2tb_pcie4",
+      "mb_asus_rog_strix_z790f",
+      "psu_corsair_hx1000",
+      "case_lianli_o11_evo"
+    ],
+    "pros": [
+      "FPS stratosphériques en compétitif",
+      "Excellent pour le streaming simultané",
+      "Refroidissement top tier"
+    ],
+    "cons": ["Le 4090 reste supérieur pour le 4K", "Prix premium"],
+    "targetGames": [
+      { "name": "CS2", "fps": "500+ FPS", "settings": "Low 1080p" },
+      { "name": "Valorant", "fps": "600+ FPS", "settings": "Low 1080p" },
+      { "name": "Overwatch 2", "fps": "400+ FPS", "settings": "Ultra 1080p" }
+    ],
+    "badge": null,
+    "upgrades": [
+      {
+        "id": "ram_64",
+        "name": "Passer à 64GB RAM",
+        "description": "Stream + record + jeu sans compromis",
+        "priceAdd": 180,
+        "componentReplaces": "ram_32_ddr5_6400"
+      }
+    ]
+  },
+  {
+    "id": "4k_beast",
+    "slug": "4k-beast",
+    "name": "4K Beast",
+    "tier": "extreme",
+    "usage": ["rpg", "fps"],
+    "tagline": "4K Ultra natif, Ray Tracing maximal, l'expérience ultime",
+    "totalPrice": 3750,
+    "assemblyFee": 200,
+    "performanceScore": { "gaming": 100, "creation": 88, "office": 97, "value": 50, "future": 95 },
+    "components": [
+      "cpu_ryzen_7_7800x3d",
+      "gpu_rtx_4090",
+      "ram_32_ddr5_6000",
+      "ssd_2tb_pcie4",
+      "mb_asus_crosshair_x670e",
+      "psu_bequiet_dp13_1000w",
+      "case_fractal_torrent"
+    ],
+    "pros": [
+      "Le meilleur GPU gaming disponible",
+      "7800X3D : CPU gaming #1",
+      "4K Ultra dans tous les jeux"
+    ],
+    "cons": ["Investissement très élevé", "La RTX 4090 consomme beaucoup"],
+    "targetGames": [
+      { "name": "Cyberpunk 2077", "fps": "60+ FPS", "settings": "Overdrive RT 4K" },
+      { "name": "Alan Wake 2", "fps": "60+ FPS", "settings": "PT Ultra 4K" },
+      { "name": "Baldur's Gate 3", "fps": "120+ FPS", "settings": "Ultra 4K" }
+    ],
+    "badge": "Top Vendeur",
+    "upgrades": [
+      {
+        "id": "ram_64_6000",
+        "name": "Passer à 64GB RAM",
+        "description": "Pour faire de la création en plus du gaming",
+        "priceAdd": 180,
+        "componentReplaces": "ram_32_ddr5_6000"
+      }
+    ]
+  },
+  {
+    "id": "workstation_ultime",
+    "slug": "workstation-ultime",
+    "name": "Workstation Ultime",
+    "tier": "extreme",
+    "usage": ["workstation", "creation"],
+    "tagline": "Rendu professionnel, simulation et CAO sans limites",
+    "totalPrice": 5400,
+    "assemblyFee": 250,
+    "performanceScore": { "gaming": 85, "creation": 100, "office": 100, "value": 30, "future": 100 },
+    "components": [
+      "cpu_ryzen_9_9950x",
+      "gpu_rtx_4090",
+      "ram_128_ddr5_5600_ecc",
+      "ssd_2tb_pcie5_raid",
+      "mb_asus_pro_ws_x670e",
+      "psu_seasonic_prime_tx1300",
+      "case_fractal_define7_xl"
+    ],
+    "pros": [
+      "128GB ECC RAM pour la stabilité",
+      "RAID 0 NVMe Gen5 ultra-rapide",
+      "Conçu pour durer 10 ans"
+    ],
+    "cons": [
+      "Prix workstation professionnel",
+      "Largement surdimensionné pour le gaming seul"
+    ],
+    "targetGames": [
+      { "name": "SolidWorks", "fps": "Fluidité maximale", "settings": "Modèles complexes" },
+      { "name": "Unreal Engine 5", "fps": "Rendu temps réel", "settings": "Lumen + Nanite" },
+      { "name": "DaVinci Resolve", "fps": "Export instantané", "settings": "8K timeline" }
+    ],
+    "badge": null,
+    "upgrades": []
+  },
+  {
+    "id": "enthusiast_gaming",
+    "slug": "enthusiast-gaming",
+    "name": "Enthusiast Gaming",
+    "tier": "extreme",
+    "usage": ["fps", "rpg"],
+    "tagline": "Pour ceux qui veulent absolument le meilleur sans compromis",
+    "totalPrice": 4450,
+    "assemblyFee": 350,
+    "performanceScore": { "gaming": 99, "creation": 92, "office": 98, "value": 35, "future": 90 },
+    "components": [
+      "cpu_intel_i9_14900ks",
+      "gpu_rtx_4090",
+      "ram_64_ddr5_7200",
+      "ssd_2tb_pcie4_dual",
+      "mb_asus_maximus_z790_apex",
+      "psu_corsair_hx1500i",
+      "case_lianli_o11_evo_xl_aio"
+    ],
+    "pros": [
+      "i9-14900KS : fréquences maximales",
+      "DDR5-7200 XMP overclockée",
+      "AIO 360mm custom pour le silence"
+    ],
+    "cons": ["Prix extrême", "Montage plus complexe (surcharge AIO custom)"],
+    "targetGames": [
+      { "name": "Tous jeux récents", "fps": "120+ FPS", "settings": "Ultra/Max 4K" }
+    ],
+    "badge": "Nouveau",
+    "upgrades": [
+      {
+        "id": "watercooling_custom",
+        "name": "Watercooling custom loop",
+        "description": "Circuit de refroidissement liquide sur mesure (CPU + GPU)",
+        "priceAdd": 600,
+        "componentReplaces": null
+      }
+    ]
+  }
+]

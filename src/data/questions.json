@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "key": "usage",
+    "question": "Quel est votre usage principal ?",
+    "subtitle": "Choisissez ce qui correspond le mieux à vos besoins",
+    "type": "single",
+    "options": [
+      { "id": "fps", "label": "Gaming compétitif", "sublabel": "FPS, MOBA, Battle Royale", "icon": "Crosshair", "weight": { "cpu": 0.7, "gpu": 0.8, "fps": 1.0 } },
+      { "id": "rpg", "label": "Gaming immersif", "sublabel": "RPG, Open world, AAA", "icon": "Sword", "weight": { "gpu": 1.0, "vram": 1.0, "fps": 0.6 } },
+      { "id": "creation", "label": "Création de contenu", "sublabel": "Vidéo, 3D, Photo, Streaming", "icon": "Video", "weight": { "cpu": 1.0, "ram": 1.0, "gpu": 0.7 } },
+      { "id": "office", "label": "Bureautique / Télétravail", "sublabel": "Office, web, visioconférence", "icon": "Briefcase", "weight": { "value": 1.0, "noise": 0.8 } },
+      { "id": "workstation", "label": "Workstation Pro", "sublabel": "CAO, simulation, rendu 3D", "icon": "Cpu", "weight": { "cpu": 1.0, "ram": 1.0, "pro_gpu": 1.0 } }
+    ]
+  },
+  {
+    "id": 2,
+    "key": "budget",
+    "question": "Quel est votre budget ?",
+    "subtitle": "Montage professionnel inclus dans les prix indiqués",
+    "type": "single",
+    "options": [
+      { "id": "entry", "label": "Entrée de gamme", "sublabel": "600 – 900 CHF", "icon": "Wallet", "min": 600, "max": 900 },
+      { "id": "mid_low", "label": "Intermédiaire", "sublabel": "900 – 1 400 CHF", "icon": "TrendingUp", "min": 900, "max": 1400 },
+      { "id": "mid_high", "label": "Gaming sérieux", "sublabel": "1 400 – 2 200 CHF", "icon": "Zap", "min": 1400, "max": 2200 },
+      { "id": "high", "label": "Haut de gamme", "sublabel": "2 200 – 3 500 CHF", "icon": "Star", "min": 2200, "max": 3500 },
+      { "id": "extreme", "label": "Enthusiast", "sublabel": "3 500 CHF et plus", "icon": "Crown", "min": 3500, "max": 99999 }
+    ]
+  },
+  {
+    "id": 3,
+    "key": "level",
+    "question": "Quel est votre niveau technique ?",
+    "subtitle": "Cela nous aide à adapter nos recommandations",
+    "type": "single",
+    "options": [
+      { "id": "beginner", "label": "Débutant", "sublabel": "Je veux du plug-and-play", "icon": "Smile" },
+      { "id": "intermediate", "label": "Intermédiaire", "sublabel": "Je connais les bases du PC", "icon": "Settings" },
+      { "id": "expert", "label": "Expert", "sublabel": "Overclocking, custom loop bienvenu", "icon": "Wrench" }
+    ]
+  },
+  {
+    "id": 4,
+    "key": "priority",
+    "question": "Qu'est-ce qui est le plus important pour vous ?",
+    "subtitle": "En cas de compromis, on priorisera ceci",
+    "type": "single",
+    "options": [
+      { "id": "fps_max", "label": "FPS maximum", "sublabel": "144Hz+, 1080p ultra fluide", "icon": "Gauge" },
+      { "id": "visual", "label": "Qualité visuelle", "sublabel": "4K, Ray Tracing, Ultra settings", "icon": "Monitor" },
+      { "id": "balance", "label": "Équilibre prix / perf", "sublabel": "Le meilleur rapport qualité/prix", "icon": "Scale" },
+      { "id": "silent", "label": "Silence avant tout", "sublabel": "PC discret et silencieux", "icon": "VolumeX" },
+      { "id": "future", "label": "Longévité (5 ans+)", "sublabel": "Future-proof, solide dans la durée", "icon": "Shield" }
+    ]
+  },
+  {
+    "id": 5,
+    "key": "peripherals",
+    "question": "Qu'avez-vous déjà ?",
+    "subtitle": "Sélectionnez tout ce que vous possédez déjà",
+    "type": "multi",
+    "options": [
+      { "id": "monitor", "label": "Écran", "sublabel": "J'ai déjà un moniteur", "icon": "Monitor" },
+      { "id": "peripherals", "label": "Clavier / Souris", "sublabel": "J'ai déjà mes périphériques", "icon": "Keyboard" },
+      { "id": "windows", "label": "Licence Windows", "sublabel": "J'ai déjà une licence valide", "icon": "Terminal" },
+      { "id": "nothing", "label": "Rien du tout", "sublabel": "J'ai besoin de tout", "icon": "Package", "exclusive": true }
+    ]
+  }
+]

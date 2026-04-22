@@ -1,0 +1,702 @@
+[
+  {
+    "id": "cpu_ryzen_5_5600",
+    "name": "AMD Ryzen 5 5600",
+    "type": "cpu",
+    "brand": "AMD",
+    "model": "Ryzen 5 5600",
+    "price": 135,
+    "specs": { "cores": 6, "threads": 12, "boost": "4.4 GHz", "socket": "AM4", "tdp": "65W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/AMD%20Ryzen%205%205600",
+      "digitec": "https://www.digitec.ch/search?q=AMD%20Ryzen%205%205600",
+      "amazon": "https://www.amazon.fr/s?k=AMD+Ryzen+5+5600"
+    }
+  },
+  {
+    "id": "cpu_ryzen_5_7600",
+    "name": "AMD Ryzen 5 7600",
+    "type": "cpu",
+    "brand": "AMD",
+    "model": "Ryzen 5 7600",
+    "price": 215,
+    "specs": { "cores": 6, "threads": 12, "boost": "5.1 GHz", "socket": "AM5", "tdp": "65W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/AMD%20Ryzen%205%207600",
+      "digitec": "https://www.digitec.ch/search?q=AMD%20Ryzen%205%207600",
+      "amazon": "https://www.amazon.fr/s?k=AMD+Ryzen+5+7600"
+    }
+  },
+  {
+    "id": "cpu_ryzen_5_7600x",
+    "name": "AMD Ryzen 5 7600X",
+    "type": "cpu",
+    "brand": "AMD",
+    "model": "Ryzen 5 7600X",
+    "price": 245,
+    "specs": { "cores": 6, "threads": 12, "boost": "5.3 GHz", "socket": "AM5", "tdp": "105W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/AMD%20Ryzen%205%207600X",
+      "digitec": "https://www.digitec.ch/search?q=AMD%20Ryzen%205%207600X",
+      "amazon": "https://www.amazon.fr/s?k=AMD+Ryzen+5+7600X"
+    }
+  },
+  {
+    "id": "cpu_ryzen_7_7800x3d",
+    "name": "AMD Ryzen 7 7800X3D",
+    "type": "cpu",
+    "brand": "AMD",
+    "model": "Ryzen 7 7800X3D",
+    "price": 459,
+    "specs": { "cores": 8, "threads": 16, "boost": "5.0 GHz", "socket": "AM5", "tdp": "120W", "cache": "96MB L3" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Ryzen%207%207800X3D",
+      "digitec": "https://www.digitec.ch/search?q=Ryzen%207%207800X3D",
+      "amazon": "https://www.amazon.fr/s?k=Ryzen+7+7800X3D"
+    }
+  },
+  {
+    "id": "cpu_ryzen_9_7900x",
+    "name": "AMD Ryzen 9 7900X",
+    "type": "cpu",
+    "brand": "AMD",
+    "model": "Ryzen 9 7900X",
+    "price": 419,
+    "specs": { "cores": 12, "threads": 24, "boost": "5.6 GHz", "socket": "AM5", "tdp": "170W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Ryzen%209%207900X",
+      "digitec": "https://www.digitec.ch/search?q=Ryzen%209%207900X",
+      "amazon": "https://www.amazon.fr/s?k=Ryzen+9+7900X"
+    }
+  },
+  {
+    "id": "cpu_ryzen_9_9950x",
+    "name": "AMD Ryzen 9 9950X",
+    "type": "cpu",
+    "brand": "AMD",
+    "model": "Ryzen 9 9950X",
+    "price": 749,
+    "specs": { "cores": 16, "threads": 32, "boost": "5.7 GHz", "socket": "AM5", "tdp": "170W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Ryzen%209%209950X",
+      "digitec": "https://www.digitec.ch/search?q=Ryzen%209%209950X",
+      "amazon": "https://www.amazon.fr/s?k=Ryzen+9+9950X"
+    }
+  },
+  {
+    "id": "cpu_intel_i7_14700k",
+    "name": "Intel Core i7-14700K",
+    "type": "cpu",
+    "brand": "Intel",
+    "model": "Core i7-14700K",
+    "price": 449,
+    "specs": { "cores": "8P+12E", "threads": 28, "boost": "5.6 GHz", "socket": "LGA1700", "tdp": "125W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Intel%20i7-14700K",
+      "digitec": "https://www.digitec.ch/search?q=Intel%20i7-14700K",
+      "amazon": "https://www.amazon.fr/s?k=Intel+i7-14700K"
+    }
+  },
+  {
+    "id": "cpu_intel_i9_14900ks",
+    "name": "Intel Core i9-14900KS",
+    "type": "cpu",
+    "brand": "Intel",
+    "model": "Core i9-14900KS",
+    "price": 749,
+    "specs": { "cores": "8P+16E", "threads": 32, "boost": "6.2 GHz", "socket": "LGA1700", "tdp": "150W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Intel%20i9-14900KS",
+      "digitec": "https://www.digitec.ch/search?q=Intel%20i9-14900KS",
+      "amazon": "https://www.amazon.fr/s?k=Intel+i9-14900KS"
+    }
+  },
+  {
+    "id": "gpu_rx_6600",
+    "name": "AMD Radeon RX 6600 8GB",
+    "type": "gpu",
+    "brand": "AMD",
+    "model": "RX 6600",
+    "price": 219,
+    "specs": { "vram": "8GB GDDR6", "tdp": "132W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/RX%206600",
+      "digitec": "https://www.digitec.ch/search?q=RX%206600",
+      "amazon": "https://www.amazon.fr/s?k=Radeon+RX+6600"
+    }
+  },
+  {
+    "id": "gpu_rtx_4060",
+    "name": "NVIDIA GeForce RTX 4060 8GB",
+    "type": "gpu",
+    "brand": "NVIDIA",
+    "model": "RTX 4060",
+    "price": 329,
+    "specs": { "vram": "8GB GDDR6", "tdp": "115W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/RTX%204060",
+      "digitec": "https://www.digitec.ch/search?q=RTX%204060",
+      "amazon": "https://www.amazon.fr/s?k=RTX+4060"
+    }
+  },
+  {
+    "id": "gpu_rtx_4070_super",
+    "name": "NVIDIA GeForce RTX 4070 Super 12GB",
+    "type": "gpu",
+    "brand": "NVIDIA",
+    "model": "RTX 4070 Super",
+    "price": 649,
+    "specs": { "vram": "12GB GDDR6X", "tdp": "220W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/RTX%204070%20Super",
+      "digitec": "https://www.digitec.ch/search?q=RTX%204070%20Super",
+      "amazon": "https://www.amazon.fr/s?k=RTX+4070+Super"
+    }
+  },
+  {
+    "id": "gpu_rtx_4070_ti_super",
+    "name": "NVIDIA GeForce RTX 4070 Ti Super 16GB",
+    "type": "gpu",
+    "brand": "NVIDIA",
+    "model": "RTX 4070 Ti Super",
+    "price": 879,
+    "specs": { "vram": "16GB GDDR6X", "tdp": "285W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/RTX%204070%20Ti%20Super",
+      "digitec": "https://www.digitec.ch/search?q=RTX%204070%20Ti%20Super",
+      "amazon": "https://www.amazon.fr/s?k=RTX+4070+Ti+Super"
+    }
+  },
+  {
+    "id": "gpu_rtx_4080_super",
+    "name": "NVIDIA GeForce RTX 4080 Super 16GB",
+    "type": "gpu",
+    "brand": "NVIDIA",
+    "model": "RTX 4080 Super",
+    "price": 1149,
+    "specs": { "vram": "16GB GDDR6X", "tdp": "320W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/RTX%204080%20Super",
+      "digitec": "https://www.digitec.ch/search?q=RTX%204080%20Super",
+      "amazon": "https://www.amazon.fr/s?k=RTX+4080+Super"
+    }
+  },
+  {
+    "id": "gpu_rtx_4090",
+    "name": "NVIDIA GeForce RTX 4090 24GB",
+    "type": "gpu",
+    "brand": "NVIDIA",
+    "model": "RTX 4090",
+    "price": 1899,
+    "specs": { "vram": "24GB GDDR6X", "tdp": "450W" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/RTX%204090",
+      "digitec": "https://www.digitec.ch/search?q=RTX%204090",
+      "amazon": "https://www.amazon.fr/s?k=RTX+4090"
+    }
+  },
+  {
+    "id": "ram_16_ddr4_3200",
+    "name": "16GB DDR4-3200 (2x8GB)",
+    "type": "ram",
+    "brand": "Corsair",
+    "model": "Vengeance LPX 16GB DDR4-3200",
+    "price": 49,
+    "specs": { "capacity": "16GB", "speed": "DDR4-3200", "kit": "2x8GB" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Corsair%2016GB%20DDR4%203200",
+      "digitec": "https://www.digitec.ch/search?q=Corsair%2016GB%20DDR4%203200",
+      "amazon": "https://www.amazon.fr/s?k=Corsair+Vengeance+16GB+DDR4-3200"
+    }
+  },
+  {
+    "id": "ram_16_ddr5_5200",
+    "name": "16GB DDR5-5200 (2x8GB)",
+    "type": "ram",
+    "brand": "G.Skill",
+    "model": "Flare X5 16GB DDR5-5200",
+    "price": 79,
+    "specs": { "capacity": "16GB", "speed": "DDR5-5200", "kit": "2x8GB" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/G.Skill%2016GB%20DDR5%205200",
+      "digitec": "https://www.digitec.ch/search?q=G.Skill%2016GB%20DDR5%205200",
+      "amazon": "https://www.amazon.fr/s?k=G.Skill+16GB+DDR5-5200"
+    }
+  },
+  {
+    "id": "ram_32_ddr5_5600",
+    "name": "32GB DDR5-5600 (2x16GB)",
+    "type": "ram",
+    "brand": "G.Skill",
+    "model": "Trident Z5 32GB DDR5-5600",
+    "price": 135,
+    "specs": { "capacity": "32GB", "speed": "DDR5-5600", "kit": "2x16GB" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/G.Skill%2032GB%20DDR5%205600",
+      "digitec": "https://www.digitec.ch/search?q=G.Skill%2032GB%20DDR5%205600",
+      "amazon": "https://www.amazon.fr/s?k=G.Skill+Trident+Z5+32GB+DDR5-5600"
+    }
+  },
+  {
+    "id": "ram_32_ddr5_6000",
+    "name": "32GB DDR5-6000 (2x16GB)",
+    "type": "ram",
+    "brand": "G.Skill",
+    "model": "Trident Z5 Neo 32GB DDR5-6000",
+    "price": 159,
+    "specs": { "capacity": "32GB", "speed": "DDR5-6000", "kit": "2x16GB", "cl": "CL30" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/G.Skill%2032GB%20DDR5%206000",
+      "digitec": "https://www.digitec.ch/search?q=G.Skill%2032GB%20DDR5%206000",
+      "amazon": "https://www.amazon.fr/s?k=G.Skill+Trident+Z5+Neo+32GB+DDR5-6000"
+    }
+  },
+  {
+    "id": "ram_32_ddr5_6400",
+    "name": "32GB DDR5-6400 (2x16GB)",
+    "type": "ram",
+    "brand": "Corsair",
+    "model": "Dominator Titanium 32GB DDR5-6400",
+    "price": 219,
+    "specs": { "capacity": "32GB", "speed": "DDR5-6400", "kit": "2x16GB" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Corsair%2032GB%20DDR5%206400",
+      "digitec": "https://www.digitec.ch/search?q=Corsair%2032GB%20DDR5%206400",
+      "amazon": "https://www.amazon.fr/s?k=Corsair+Dominator+32GB+DDR5-6400"
+    }
+  },
+  {
+    "id": "ram_64_ddr5_6000",
+    "name": "64GB DDR5-6000 (2x32GB)",
+    "type": "ram",
+    "brand": "G.Skill",
+    "model": "Trident Z5 64GB DDR5-6000",
+    "price": 339,
+    "specs": { "capacity": "64GB", "speed": "DDR5-6000", "kit": "2x32GB" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/G.Skill%2064GB%20DDR5%206000",
+      "digitec": "https://www.digitec.ch/search?q=G.Skill%2064GB%20DDR5%206000",
+      "amazon": "https://www.amazon.fr/s?k=G.Skill+64GB+DDR5-6000"
+    }
+  },
+  {
+    "id": "ram_64_ddr5_7200",
+    "name": "64GB DDR5-7200 (2x32GB)",
+    "type": "ram",
+    "brand": "G.Skill",
+    "model": "Trident Z5 RGB 64GB DDR5-7200",
+    "price": 449,
+    "specs": { "capacity": "64GB", "speed": "DDR5-7200", "kit": "2x32GB" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/G.Skill%2064GB%20DDR5%207200",
+      "digitec": "https://www.digitec.ch/search?q=G.Skill%2064GB%20DDR5%207200",
+      "amazon": "https://www.amazon.fr/s?k=G.Skill+64GB+DDR5-7200"
+    }
+  },
+  {
+    "id": "ram_128_ddr5_5600_ecc",
+    "name": "128GB DDR5-5600 ECC (4x32GB)",
+    "type": "ram",
+    "brand": "Kingston",
+    "model": "FURY Renegade Pro 128GB DDR5-5600 ECC",
+    "price": 779,
+    "specs": { "capacity": "128GB", "speed": "DDR5-5600", "kit": "4x32GB", "ecc": true },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Kingston%20128GB%20DDR5%20ECC",
+      "digitec": "https://www.digitec.ch/search?q=Kingston%20128GB%20DDR5%20ECC",
+      "amazon": "https://www.amazon.fr/s?k=Kingston+FURY+128GB+DDR5+ECC"
+    }
+  },
+  {
+    "id": "ssd_500_pcie3",
+    "name": "SSD 500GB NVMe PCIe 3.0",
+    "type": "storage",
+    "brand": "Crucial",
+    "model": "P3 500GB NVMe",
+    "price": 45,
+    "specs": { "capacity": "500GB", "interface": "PCIe 3.0 x4", "type": "NVMe" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Crucial%20P3%20500GB",
+      "digitec": "https://www.digitec.ch/search?q=Crucial%20P3%20500GB",
+      "amazon": "https://www.amazon.fr/s?k=Crucial+P3+500GB"
+    }
+  },
+  {
+    "id": "ssd_1tb_pcie4",
+    "name": "SSD 1TB NVMe PCIe 4.0",
+    "type": "storage",
+    "brand": "WD",
+    "model": "Black SN770 1TB",
+    "price": 89,
+    "specs": { "capacity": "1TB", "interface": "PCIe 4.0 x4", "type": "NVMe" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/WD%20SN770%201TB",
+      "digitec": "https://www.digitec.ch/search?q=WD%20SN770%201TB",
+      "amazon": "https://www.amazon.fr/s?k=WD+Black+SN770+1TB"
+    }
+  },
+  {
+    "id": "ssd_2tb_pcie4",
+    "name": "SSD 2TB NVMe PCIe 4.0",
+    "type": "storage",
+    "brand": "Samsung",
+    "model": "990 Pro 2TB",
+    "price": 189,
+    "specs": { "capacity": "2TB", "interface": "PCIe 4.0 x4", "type": "NVMe" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Samsung%20990%20Pro%202TB",
+      "digitec": "https://www.digitec.ch/search?q=Samsung%20990%20Pro%202TB",
+      "amazon": "https://www.amazon.fr/s?k=Samsung+990+Pro+2TB"
+    }
+  },
+  {
+    "id": "ssd_2tb_pcie4_dual",
+    "name": "2x SSD 2TB NVMe PCIe 4.0",
+    "type": "storage",
+    "brand": "Samsung",
+    "model": "2x 990 Pro 2TB",
+    "price": 359,
+    "specs": { "capacity": "4TB total", "interface": "PCIe 4.0 x4", "type": "NVMe", "config": "2x 2TB" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Samsung%20990%20Pro%202TB",
+      "digitec": "https://www.digitec.ch/search?q=Samsung%20990%20Pro%202TB",
+      "amazon": "https://www.amazon.fr/s?k=Samsung+990+Pro+2TB"
+    }
+  },
+  {
+    "id": "ssd_2tb_pcie5_raid",
+    "name": "2x SSD 2TB NVMe PCIe 5.0 RAID 0",
+    "type": "storage",
+    "brand": "Crucial",
+    "model": "T705 2x 2TB PCIe 5.0",
+    "price": 729,
+    "specs": { "capacity": "4TB total RAID 0", "interface": "PCIe 5.0 x4", "type": "NVMe" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Crucial%20T705%202TB",
+      "digitec": "https://www.digitec.ch/search?q=Crucial%20T705%202TB",
+      "amazon": "https://www.amazon.fr/s?k=Crucial+T705+2TB"
+    }
+  },
+  {
+    "id": "mb_msi_b550a_pro",
+    "name": "MSI B550-A Pro",
+    "type": "motherboard",
+    "brand": "MSI",
+    "model": "B550-A Pro",
+    "price": 129,
+    "specs": { "socket": "AM4", "chipset": "B550", "form": "ATX" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/MSI%20B550-A%20Pro",
+      "digitec": "https://www.digitec.ch/search?q=MSI%20B550-A%20Pro",
+      "amazon": "https://www.amazon.fr/s?k=MSI+B550-A+Pro"
+    }
+  },
+  {
+    "id": "mb_msi_b650p_wifi",
+    "name": "MSI B650-P WiFi",
+    "type": "motherboard",
+    "brand": "MSI",
+    "model": "B650-P WiFi",
+    "price": 199,
+    "specs": { "socket": "AM5", "chipset": "B650", "form": "ATX", "wifi": true },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/MSI%20B650-P%20WiFi",
+      "digitec": "https://www.digitec.ch/search?q=MSI%20B650-P%20WiFi",
+      "amazon": "https://www.amazon.fr/s?k=MSI+B650-P+WiFi"
+    }
+  },
+  {
+    "id": "mb_asus_tuf_b650e",
+    "name": "ASUS TUF B650E-Plus WiFi",
+    "type": "motherboard",
+    "brand": "ASUS",
+    "model": "TUF B650E-Plus WiFi",
+    "price": 259,
+    "specs": { "socket": "AM5", "chipset": "B650E", "form": "ATX", "wifi": true, "pcie5": true },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/ASUS%20TUF%20B650E-Plus",
+      "digitec": "https://www.digitec.ch/search?q=ASUS%20TUF%20B650E-Plus",
+      "amazon": "https://www.amazon.fr/s?k=ASUS+TUF+B650E-Plus+WiFi"
+    }
+  },
+  {
+    "id": "mb_asus_proart_x670e",
+    "name": "ASUS ProArt X670E-Creator",
+    "type": "motherboard",
+    "brand": "ASUS",
+    "model": "ProArt X670E-Creator WiFi",
+    "price": 519,
+    "specs": { "socket": "AM5", "chipset": "X670E", "form": "ATX", "thunderbolt": "4" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/ASUS%20ProArt%20X670E",
+      "digitec": "https://www.digitec.ch/search?q=ASUS%20ProArt%20X670E",
+      "amazon": "https://www.amazon.fr/s?k=ASUS+ProArt+X670E"
+    }
+  },
+  {
+    "id": "mb_asus_rog_strix_z790f",
+    "name": "ASUS ROG Strix Z790-F",
+    "type": "motherboard",
+    "brand": "ASUS",
+    "model": "ROG Strix Z790-F Gaming WiFi",
+    "price": 449,
+    "specs": { "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "wifi": true },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/ROG%20Strix%20Z790-F",
+      "digitec": "https://www.digitec.ch/search?q=ROG%20Strix%20Z790-F",
+      "amazon": "https://www.amazon.fr/s?k=ROG+Strix+Z790-F"
+    }
+  },
+  {
+    "id": "mb_asus_crosshair_x670e",
+    "name": "ASUS ROG Crosshair X670E Hero",
+    "type": "motherboard",
+    "brand": "ASUS",
+    "model": "ROG Crosshair X670E Hero",
+    "price": 729,
+    "specs": { "socket": "AM5", "chipset": "X670E", "form": "ATX" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/ROG%20Crosshair%20X670E",
+      "digitec": "https://www.digitec.ch/search?q=ROG%20Crosshair%20X670E",
+      "amazon": "https://www.amazon.fr/s?k=ROG+Crosshair+X670E+Hero"
+    }
+  },
+  {
+    "id": "mb_asus_pro_ws_x670e",
+    "name": "ASUS Pro WS X670E-ACE",
+    "type": "motherboard",
+    "brand": "ASUS",
+    "model": "Pro WS X670E-ACE",
+    "price": 759,
+    "specs": { "socket": "AM5", "chipset": "X670E", "form": "CEB", "ecc": true },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/ASUS%20Pro%20WS%20X670E",
+      "digitec": "https://www.digitec.ch/search?q=ASUS%20Pro%20WS%20X670E",
+      "amazon": "https://www.amazon.fr/s?k=ASUS+Pro+WS+X670E-ACE"
+    }
+  },
+  {
+    "id": "mb_asus_maximus_z790_apex",
+    "name": "ASUS ROG Maximus Z790 Apex",
+    "type": "motherboard",
+    "brand": "ASUS",
+    "model": "ROG Maximus Z790 Apex Encore",
+    "price": 939,
+    "specs": { "socket": "LGA1700", "chipset": "Z790", "form": "ATX", "memory_oc": true },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Maximus%20Z790%20Apex",
+      "digitec": "https://www.digitec.ch/search?q=Maximus%20Z790%20Apex",
+      "amazon": "https://www.amazon.fr/s?k=ROG+Maximus+Z790+Apex"
+    }
+  },
+  {
+    "id": "psu_bequiet_550w",
+    "name": "be quiet! Pure Power 11 550W 80+ Gold",
+    "type": "psu",
+    "brand": "be quiet!",
+    "model": "Pure Power 11 550W",
+    "price": 89,
+    "specs": { "power": "550W", "rating": "80+ Gold", "modular": "Semi" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Pure%20Power%2011%20550W",
+      "digitec": "https://www.digitec.ch/search?q=Pure%20Power%2011%20550W",
+      "amazon": "https://www.amazon.fr/s?k=be+quiet+Pure+Power+11+550W"
+    }
+  },
+  {
+    "id": "psu_corsair_rm650x",
+    "name": "Corsair RM650x 650W 80+ Gold",
+    "type": "psu",
+    "brand": "Corsair",
+    "model": "RM650x 650W",
+    "price": 119,
+    "specs": { "power": "650W", "rating": "80+ Gold", "modular": "Full" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Corsair%20RM650x",
+      "digitec": "https://www.digitec.ch/search?q=Corsair%20RM650x",
+      "amazon": "https://www.amazon.fr/s?k=Corsair+RM650x"
+    }
+  },
+  {
+    "id": "psu_corsair_rm750x",
+    "name": "Corsair RM750x 750W 80+ Gold",
+    "type": "psu",
+    "brand": "Corsair",
+    "model": "RM750x 750W",
+    "price": 145,
+    "specs": { "power": "750W", "rating": "80+ Gold", "modular": "Full" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Corsair%20RM750x",
+      "digitec": "https://www.digitec.ch/search?q=Corsair%20RM750x",
+      "amazon": "https://www.amazon.fr/s?k=Corsair+RM750x"
+    }
+  },
+  {
+    "id": "psu_seasonic_gx850",
+    "name": "Seasonic Focus GX-850 850W 80+ Gold",
+    "type": "psu",
+    "brand": "Seasonic",
+    "model": "Focus GX-850",
+    "price": 169,
+    "specs": { "power": "850W", "rating": "80+ Gold", "modular": "Full" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Seasonic%20Focus%20GX-850",
+      "digitec": "https://www.digitec.ch/search?q=Seasonic%20Focus%20GX-850",
+      "amazon": "https://www.amazon.fr/s?k=Seasonic+Focus+GX-850"
+    }
+  },
+  {
+    "id": "psu_corsair_hx1000",
+    "name": "Corsair HX1000 1000W 80+ Platinum",
+    "type": "psu",
+    "brand": "Corsair",
+    "model": "HX1000",
+    "price": 259,
+    "specs": { "power": "1000W", "rating": "80+ Platinum", "modular": "Full" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Corsair%20HX1000",
+      "digitec": "https://www.digitec.ch/search?q=Corsair%20HX1000",
+      "amazon": "https://www.amazon.fr/s?k=Corsair+HX1000"
+    }
+  },
+  {
+    "id": "psu_bequiet_dp13_1000w",
+    "name": "be quiet! Dark Power 13 1000W 80+ Titanium",
+    "type": "psu",
+    "brand": "be quiet!",
+    "model": "Dark Power 13 1000W",
+    "price": 309,
+    "specs": { "power": "1000W", "rating": "80+ Titanium", "modular": "Full" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Dark%20Power%2013%201000W",
+      "digitec": "https://www.digitec.ch/search?q=Dark%20Power%2013%201000W",
+      "amazon": "https://www.amazon.fr/s?k=be+quiet+Dark+Power+13+1000W"
+    }
+  },
+  {
+    "id": "psu_seasonic_prime_tx1300",
+    "name": "Seasonic Prime TX-1300 1300W 80+ Titanium",
+    "type": "psu",
+    "brand": "Seasonic",
+    "model": "Prime TX-1300",
+    "price": 419,
+    "specs": { "power": "1300W", "rating": "80+ Titanium", "modular": "Full" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Seasonic%20Prime%20TX-1300",
+      "digitec": "https://www.digitec.ch/search?q=Seasonic%20Prime%20TX-1300",
+      "amazon": "https://www.amazon.fr/s?k=Seasonic+Prime+TX-1300"
+    }
+  },
+  {
+    "id": "psu_corsair_hx1500i",
+    "name": "Corsair HX1500i 1500W 80+ Platinum",
+    "type": "psu",
+    "brand": "Corsair",
+    "model": "HX1500i",
+    "price": 459,
+    "specs": { "power": "1500W", "rating": "80+ Platinum", "modular": "Full" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Corsair%20HX1500i",
+      "digitec": "https://www.digitec.ch/search?q=Corsair%20HX1500i",
+      "amazon": "https://www.amazon.fr/s?k=Corsair+HX1500i"
+    }
+  },
+  {
+    "id": "case_fractal_focus2",
+    "name": "Fractal Design Focus 2",
+    "type": "case",
+    "brand": "Fractal Design",
+    "model": "Focus 2",
+    "price": 79,
+    "specs": { "form": "Mid Tower", "fans": "2x 140mm" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Fractal%20Focus%202",
+      "digitec": "https://www.digitec.ch/search?q=Fractal%20Focus%202",
+      "amazon": "https://www.amazon.fr/s?k=Fractal+Design+Focus+2"
+    }
+  },
+  {
+    "id": "case_lianli_lancool205",
+    "name": "Lian Li Lancool 205",
+    "type": "case",
+    "brand": "Lian Li",
+    "model": "Lancool 205",
+    "price": 89,
+    "specs": { "form": "Mid Tower", "fans": "3x 120mm" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Lian%20Li%20Lancool%20205",
+      "digitec": "https://www.digitec.ch/search?q=Lian%20Li%20Lancool%20205",
+      "amazon": "https://www.amazon.fr/s?k=Lian+Li+Lancool+205"
+    }
+  },
+  {
+    "id": "case_fractal_north",
+    "name": "Fractal Design North",
+    "type": "case",
+    "brand": "Fractal Design",
+    "model": "North",
+    "price": 159,
+    "specs": { "form": "Mid Tower", "design": "wood front panel" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Fractal%20North",
+      "digitec": "https://www.digitec.ch/search?q=Fractal%20North",
+      "amazon": "https://www.amazon.fr/s?k=Fractal+Design+North"
+    }
+  },
+  {
+    "id": "case_fractal_torrent",
+    "name": "Fractal Design Torrent",
+    "type": "case",
+    "brand": "Fractal Design",
+    "model": "Torrent",
+    "price": 219,
+    "specs": { "form": "Mid Tower", "fans": "5x", "airflow": "high" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Fractal%20Torrent",
+      "digitec": "https://www.digitec.ch/search?q=Fractal%20Torrent",
+      "amazon": "https://www.amazon.fr/s?k=Fractal+Design+Torrent"
+    }
+  },
+  {
+    "id": "case_lianli_o11_evo",
+    "name": "Lian Li O11 Dynamic EVO",
+    "type": "case",
+    "brand": "Lian Li",
+    "model": "O11 Dynamic EVO",
+    "price": 199,
+    "specs": { "form": "Mid Tower", "design": "dual chamber" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Lian%20Li%20O11%20Dynamic%20EVO",
+      "digitec": "https://www.digitec.ch/search?q=Lian%20Li%20O11%20Dynamic%20EVO",
+      "amazon": "https://www.amazon.fr/s?k=Lian+Li+O11+Dynamic+EVO"
+    }
+  },
+  {
+    "id": "case_fractal_define7_xl",
+    "name": "Fractal Design Define 7 XL",
+    "type": "case",
+    "brand": "Fractal Design",
+    "model": "Define 7 XL",
+    "price": 289,
+    "specs": { "form": "Full Tower", "noise": "silent oriented" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Fractal%20Define%207%20XL",
+      "digitec": "https://www.digitec.ch/search?q=Fractal%20Define%207%20XL",
+      "amazon": "https://www.amazon.fr/s?k=Fractal+Design+Define+7+XL"
+    }
+  },
+  {
+    "id": "case_lianli_o11_evo_xl_aio",
+    "name": "Lian Li O11 Dynamic EVO XL + AIO 360mm",
+    "type": "case",
+    "brand": "Lian Li",
+    "model": "O11 Dynamic EVO XL + AIO 360mm",
+    "price": 539,
+    "specs": { "form": "Full Tower", "cooling": "AIO 360mm inclus" },
+    "affiliateLinks": {
+      "ldlc": "https://www.ldlc.com/recherche/Lian%20Li%20O11%20EVO%20XL",
+      "digitec": "https://www.digitec.ch/search?q=Lian%20Li%20O11%20EVO%20XL",
+      "amazon": "https://www.amazon.fr/s?k=Lian+Li+O11+Dynamic+EVO+XL"
+    }
+  }
+]
