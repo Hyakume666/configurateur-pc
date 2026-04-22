@@ -1,0 +1,35 @@
+{
+  "name": "Loïc.config — Configurateur PC Gaming",
+  "short_name": "Loïc.config",
+  "description": "Configurateur de PC gaming sur mesure en Suisse romande. 5 questions, configuration parfaite.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#05060a",
+  "theme_color": "#00a3ff",
+  "lang": "fr-CH",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "shopping", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Faire le quiz",
+      "short_name": "Quiz",
+      "description": "Trouver la configuration idéale en 5 questions",
+      "url": "/quiz"
+    },
+    {
+      "name": "Toutes les configs",
+      "short_name": "Catalogue",
+      "url": "/configs"
+    }
+  ]
+}
