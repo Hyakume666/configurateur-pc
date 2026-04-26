@@ -102,7 +102,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
       </div>
     </header>
 
-    <div class="relative min-h-[420px]">
+    <div class="relative min-h-[320px] sm:min-h-[420px]">
       <Transition name="step" mode="out-in">
         <div :key="store.currentStep">
           <div
