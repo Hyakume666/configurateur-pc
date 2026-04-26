@@ -29,6 +29,7 @@ const summary = computed(() => summarizeAnswers(quizStore.answers))
 
 function restart() {
   quizStore.reset()
+  configStore.setTopMatches([])
   router.push({ name: 'quiz' })
 }
 </script>

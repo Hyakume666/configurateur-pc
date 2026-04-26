@@ -111,11 +111,11 @@ useHead({
   script: [
     {
       type: 'application/ld+json',
-      children: () => JSON.stringify(productJsonLd.value)
+      children: () => productJsonLd.value ? JSON.stringify(productJsonLd.value) : undefined
     },
     {
       type: 'application/ld+json',
-      children: () => JSON.stringify(breadcrumbJsonLd.value)
+      children: () => breadcrumbJsonLd.value ? JSON.stringify(breadcrumbJsonLd.value) : undefined
     }
   ]
 })
