@@ -38,7 +38,7 @@ const upgradeAdd = computed(() =>
 const SITE_URL = 'https://pc.loicbarthoulot.ch'
 
 const productJsonLd = computed(() => {
-  if (!config.value) return null
+  if (!config.value) return ''
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -59,7 +59,7 @@ const productJsonLd = computed(() => {
 })
 
 const breadcrumbJsonLd = computed(() => {
-  if (!config.value) return null
+  if (!config.value) return ''
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
