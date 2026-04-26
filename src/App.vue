@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onUnmounted, ref } from 'vue'
 import { RouterView, RouterLink, useRoute, useRouter } from 'vue-router'
 import { Cpu, Mail, Menu, X } from 'lucide-vue-next'
 import AppToast from '@/components/ui/AppToast.vue'
@@ -10,9 +10,10 @@ const route = useRoute()
 const router = useRouter()
 const mobileNavOpen = ref(false)
 
-router.afterEach(() => {
+const stopNavWatch = router.afterEach(() => {
   mobileNavOpen.value = false
 })
+onUnmounted(stopNavWatch)
 
 const isQuizRoute = computed(() => route.name === 'quiz')
 
@@ -34,7 +35,7 @@ const navItems = [
     </a>
 
     <!-- HEADER (hidden on quiz for immersion) -->
-    <header v-if="!isQuizRoute" class="sticky top-0 z-40 relative glass border-b border-border-subtle/60">
+    <header v-if="!isQuizRoute" class="sticky top-0 z-40 glass border-b border-border-subtle/60">
       <div class="container-page flex items-center justify-between h-16">
         <RouterLink :to="{ name: 'home' }" class="inline-flex items-center gap-2 group">
           <span class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-neon-violet flex items-center justify-center shadow-glow-soft group-hover:shadow-neon-blue transition">
@@ -61,7 +62,7 @@ const navItems = [
           type="button"
           class="sm:hidden flex items-center justify-center w-10 h-10 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-800 transition cursor-pointer"
           :aria-label="mobileNavOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
-          :aria-expanded="mobileNavOpen"
+          :aria-expanded="mobileNavOpen ? 'true' : 'false'"
           @click="mobileNavOpen = !mobileNavOpen"
         >
           <X v-if="mobileNavOpen" class="w-5 h-5" />
