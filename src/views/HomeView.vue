@@ -34,6 +34,18 @@ const orgJsonLd = {
   priceRange: 'CHF 690 – 5 650'
 }
 
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Loïc.config',
+  url: SITE_URL,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${SITE_URL}/configs?q={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
+}
+
 useHead({
   title: 'Configurateur PC Gaming Suisse | Loïc Barthoulot',
   link: [{ rel: 'canonical', href: SITE_URL }],
@@ -60,6 +72,10 @@ useHead({
     {
       type: 'application/ld+json',
       children: JSON.stringify(orgJsonLd)
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(websiteJsonLd)
     }
   ]
 })
