@@ -58,6 +58,34 @@ const productJsonLd = computed(() => {
   }
 })
 
+const breadcrumbJsonLd = computed(() => {
+  if (!config.value) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Accueil',
+        item: SITE_URL
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Configurations',
+        item: `${SITE_URL}/configs`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: config.value.name,
+        item: `${SITE_URL}/config/${config.value.slug}`
+      }
+    ]
+  }
+})
+
 useHead({
   title: () => (config.value ? `${config.value.name} — ${config.value.tagline}` : 'Configuration'),
   link: [
@@ -84,6 +112,10 @@ useHead({
     {
       type: 'application/ld+json',
       children: () => JSON.stringify(productJsonLd.value)
+    },
+    {
+      type: 'application/ld+json',
+      children: () => JSON.stringify(breadcrumbJsonLd.value)
     }
   ]
 })
