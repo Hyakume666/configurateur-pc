@@ -1,12 +1,18 @@
 <script setup>
-import { computed } from 'vue'
-import { RouterView, RouterLink, useRoute } from 'vue-router'
-import { Cpu, Mail } from 'lucide-vue-next'
+import { computed, ref } from 'vue'
+import { RouterView, RouterLink, useRoute, useRouter } from 'vue-router'
+import { Cpu, Mail, Menu, X } from 'lucide-vue-next'
 import AppToast from '@/components/ui/AppToast.vue'
 import StorageNotice from '@/components/ui/StorageNotice.vue'
 import CompareTray from '@/components/config/CompareTray.vue'
 
 const route = useRoute()
+const router = useRouter()
+const mobileNavOpen = ref(false)
+
+router.afterEach(() => {
+  mobileNavOpen.value = false
+})
 
 const isQuizRoute = computed(() => route.name === 'quiz')
 
@@ -28,7 +34,7 @@ const navItems = [
     </a>
 
     <!-- HEADER (hidden on quiz for immersion) -->
-    <header v-if="!isQuizRoute" class="sticky top-0 z-40 glass border-b border-border-subtle/60">
+    <header v-if="!isQuizRoute" class="sticky top-0 z-40 relative glass border-b border-border-subtle/60">
       <div class="container-page flex items-center justify-between h-16">
         <RouterLink :to="{ name: 'home' }" class="inline-flex items-center gap-2 group">
           <span class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-500 to-neon-violet flex items-center justify-center shadow-glow-soft group-hover:shadow-neon-blue transition">
@@ -51,13 +57,45 @@ const navItems = [
           </RouterLink>
         </nav>
 
-        <RouterLink
-          :to="{ name: 'quiz' }"
-          class="sm:hidden text-sm text-neon-blue font-medium cursor-pointer"
+        <button
+          type="button"
+          class="sm:hidden flex items-center justify-center w-10 h-10 rounded-lg text-text-secondary hover:text-text-primary hover:bg-bg-800 transition cursor-pointer"
+          :aria-label="mobileNavOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
+          :aria-expanded="mobileNavOpen"
+          @click="mobileNavOpen = !mobileNavOpen"
         >
-          Quiz
-        </RouterLink>
+          <X v-if="mobileNavOpen" class="w-5 h-5" />
+          <Menu v-else class="w-5 h-5" />
+        </button>
       </div>
+
+      <!-- Backdrop -->
+      <Transition name="fade">
+        <div
+          v-if="mobileNavOpen"
+          class="sm:hidden fixed inset-0 z-30 bg-bg-950/60"
+          @click="mobileNavOpen = false"
+        />
+      </Transition>
+
+      <!-- Panel mobile -->
+      <Transition name="slide-down">
+        <nav
+          v-if="mobileNavOpen"
+          class="sm:hidden absolute top-full left-0 right-0 z-40 glass border-b border-border-subtle/60 py-2"
+          aria-label="Navigation mobile"
+        >
+          <RouterLink
+            v-for="n in navItems"
+            :key="n.name"
+            :to="{ name: n.name }"
+            class="flex items-center px-6 py-3 text-sm font-medium text-text-secondary hover:text-text-primary hover:bg-bg-800 transition cursor-pointer"
+            active-class="text-neon-blue"
+          >
+            {{ n.label }}
+          </RouterLink>
+        </nav>
+      </Transition>
     </header>
 
     <main id="main-content" class="flex-1" tabindex="-1">
@@ -125,6 +163,12 @@ const navItems = [
 </template>
 
 <style scoped>
+.fade-enter-active, .fade-leave-active { transition: opacity 0.2s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+
+.slide-down-enter-active, .slide-down-leave-active { transition: opacity 0.2s ease, transform 0.2s ease; }
+.slide-down-enter-from, .slide-down-leave-to { opacity: 0; transform: translateY(-8px); }
+
 .page-enter-active, .page-leave-active {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
