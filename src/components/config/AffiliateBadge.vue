@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { ExternalLink } from 'lucide-vue-next'
 import { useAffiliates } from '@/composables/useAffiliates'
+import { buildAffiliateUrl } from '@/utils/affiliateUrl'
 
 const props = defineProps({
   retailer: { type: Object, required: true },
@@ -9,7 +10,7 @@ const props = defineProps({
   configSlug: { type: String, default: null }
 })
 
-const { trackClick, buildAffiliateUrl } = useAffiliates()
+const { trackClick } = useAffiliates()
 const shaking = ref(false)
 
 function handleClick() {

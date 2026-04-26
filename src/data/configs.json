@@ -4,11 +4,20 @@
     "slug": "l-essentiel",
     "name": "L'Essentiel",
     "tier": "budget",
-    "usage": ["office", "fps"],
+    "usage": [
+      "office",
+      "fps"
+    ],
     "tagline": "Parfait pour débuter, naviguer et travailler sans ralentissements",
     "totalPrice": 690,
     "assemblyFee": 120,
-    "performanceScore": { "gaming": 42, "creation": 35, "office": 88, "value": 90, "future": 35 },
+    "performanceScore": {
+      "gaming": 42,
+      "creation": 35,
+      "office": 88,
+      "value": 90,
+      "future": 35
+    },
     "components": [
       "cpu_ryzen_5_5600",
       "gpu_rx_6600",
@@ -23,11 +32,25 @@
       "Silencieux au repos",
       "Idéal pour un premier PC"
     ],
-    "cons": ["Limité pour les jeux AAA récents en high settings"],
+    "cons": [
+      "Limité pour les jeux AAA récents en high settings"
+    ],
     "targetGames": [
-      { "name": "Valorant", "fps": "200+ FPS", "settings": "Low 1080p" },
-      { "name": "CS2", "fps": "150+ FPS", "settings": "Medium 1080p" },
-      { "name": "League of Legends", "fps": "300+ FPS", "settings": "High 1080p" }
+      {
+        "name": "Valorant",
+        "fps": "200+ FPS",
+        "settings": "Low 1080p"
+      },
+      {
+        "name": "CS2",
+        "fps": "150+ FPS",
+        "settings": "Medium 1080p"
+      },
+      {
+        "name": "League of Legends",
+        "fps": "300+ FPS",
+        "settings": "High 1080p"
+      }
     ],
     "badge": null,
     "upgrades": [
@@ -45,18 +68,28 @@
         "priceAdd": 40,
         "componentReplaces": "ssd_500_pcie3"
       }
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "gaming_entry",
     "slug": "gaming-entry",
     "name": "Gaming Entry",
     "tier": "mid",
-    "usage": ["fps", "rpg"],
+    "usage": [
+      "fps",
+      "rpg"
+    ],
     "tagline": "Gaming 1080p fluide sans se ruiner",
     "totalPrice": 1020,
     "assemblyFee": 150,
-    "performanceScore": { "gaming": 62, "creation": 48, "office": 92, "value": 85, "future": 55 },
+    "performanceScore": {
+      "gaming": 62,
+      "creation": 48,
+      "office": 92,
+      "value": 85,
+      "future": 55
+    },
     "components": [
       "cpu_ryzen_5_7600",
       "gpu_rtx_4060",
@@ -76,9 +109,21 @@
       "8GB VRAM limite à terme"
     ],
     "targetGames": [
-      { "name": "Fortnite", "fps": "165+ FPS", "settings": "High 1080p" },
-      { "name": "Baldur's Gate 3", "fps": "60+ FPS", "settings": "Ultra 1080p" },
-      { "name": "Cyberpunk 2077", "fps": "60+ FPS", "settings": "High 1080p" }
+      {
+        "name": "Fortnite",
+        "fps": "165+ FPS",
+        "settings": "High 1080p"
+      },
+      {
+        "name": "Baldur's Gate 3",
+        "fps": "60+ FPS",
+        "settings": "Ultra 1080p"
+      },
+      {
+        "name": "Cyberpunk 2077",
+        "fps": "60+ FPS",
+        "settings": "High 1080p"
+      }
     ],
     "badge": null,
     "upgrades": [
@@ -89,18 +134,28 @@
         "priceAdd": 60,
         "componentReplaces": "ram_16_ddr5_5200"
       }
-    ]
+    ],
+    "featured": true
   },
   {
     "id": "sweet_spot",
     "slug": "sweet-spot",
     "name": "Sweet Spot",
     "tier": "mid",
-    "usage": ["fps", "rpg"],
+    "usage": [
+      "fps",
+      "rpg"
+    ],
     "tagline": "Le meilleur équilibre performance/prix du marché actuel",
     "totalPrice": 1520,
     "assemblyFee": 150,
-    "performanceScore": { "gaming": 78, "creation": 65, "office": 95, "value": 92, "future": 70 },
+    "performanceScore": {
+      "gaming": 78,
+      "creation": 65,
+      "office": 95,
+      "value": 92,
+      "future": 70
+    },
     "components": [
       "cpu_ryzen_5_7600x",
       "gpu_rtx_4070_super",
@@ -115,11 +170,25 @@
       "1440p Ultra sans effort",
       "Polyvalent gaming + création"
     ],
-    "cons": ["Pas le top pour le 4K natif"],
+    "cons": [
+      "Pas le top pour le 4K natif"
+    ],
     "targetGames": [
-      { "name": "Cyberpunk 2077", "fps": "80+ FPS", "settings": "Ultra 1440p" },
-      { "name": "Baldur's Gate 3", "fps": "80+ FPS", "settings": "Ultra 1440p" },
-      { "name": "Overwatch 2", "fps": "240+ FPS", "settings": "Ultra 1080p" }
+      {
+        "name": "Cyberpunk 2077",
+        "fps": "80+ FPS",
+        "settings": "Ultra 1440p"
+      },
+      {
+        "name": "Baldur's Gate 3",
+        "fps": "80+ FPS",
+        "settings": "Ultra 1440p"
+      },
+      {
+        "name": "Overwatch 2",
+        "fps": "240+ FPS",
+        "settings": "Ultra 1080p"
+      }
     ],
     "badge": "Meilleur rapport Q/P",
     "upgrades": [
@@ -137,18 +206,28 @@
         "priceAdd": 230,
         "componentReplaces": "gpu_rtx_4070_super"
       }
-    ]
+    ],
+    "featured": true
   },
   {
     "id": "createur_pro",
     "slug": "createur-pro",
     "name": "Créateur Pro",
     "tier": "high",
-    "usage": ["creation", "workstation"],
+    "usage": [
+      "creation",
+      "workstation"
+    ],
     "tagline": "Montage vidéo 4K, rendu 3D et streaming sans compromis",
     "totalPrice": 2350,
     "assemblyFee": 180,
-    "performanceScore": { "gaming": 80, "creation": 95, "office": 98, "value": 70, "future": 85 },
+    "performanceScore": {
+      "gaming": 80,
+      "creation": 95,
+      "office": 98,
+      "value": 70,
+      "future": 85
+    },
     "components": [
       "cpu_ryzen_9_7900x",
       "gpu_rtx_4070_ti_super",
@@ -163,11 +242,26 @@
       "Encodage NVENC ultra-rapide",
       "Excellent pour le streaming 4K"
     ],
-    "cons": ["Overkill si usage purement gaming", "Prix élevé"],
+    "cons": [
+      "Overkill si usage purement gaming",
+      "Prix élevé"
+    ],
     "targetGames": [
-      { "name": "DaVinci Resolve 4K", "fps": "Temps réel", "settings": "Édition fluide" },
-      { "name": "Blender", "fps": "Rendu rapide", "settings": "Cycles GPU" },
-      { "name": "Premiere Pro", "fps": "Export accéléré", "settings": "H.265 hardware" }
+      {
+        "name": "DaVinci Resolve 4K",
+        "fps": "Temps réel",
+        "settings": "Édition fluide"
+      },
+      {
+        "name": "Blender",
+        "fps": "Rendu rapide",
+        "settings": "Cycles GPU"
+      },
+      {
+        "name": "Premiere Pro",
+        "fps": "Export accéléré",
+        "settings": "H.265 hardware"
+      }
     ],
     "badge": null,
     "upgrades": [
@@ -178,18 +272,27 @@
         "priceAdd": 1020,
         "componentReplaces": "gpu_rtx_4070_ti_super"
       }
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "fhd_warrior",
     "slug": "full-hd-warrior",
     "name": "Full HD Warrior",
     "tier": "high",
-    "usage": ["fps"],
+    "usage": [
+      "fps"
+    ],
     "tagline": "240Hz+ en compétitif, dominez vos adversaires",
     "totalPrice": 2780,
     "assemblyFee": 180,
-    "performanceScore": { "gaming": 92, "creation": 75, "office": 96, "value": 65, "future": 80 },
+    "performanceScore": {
+      "gaming": 92,
+      "creation": 75,
+      "office": 96,
+      "value": 65,
+      "future": 80
+    },
     "components": [
       "cpu_intel_i7_14700k",
       "gpu_rtx_4080_super",
@@ -204,11 +307,26 @@
       "Excellent pour le streaming simultané",
       "Refroidissement top tier"
     ],
-    "cons": ["Le 4090 reste supérieur pour le 4K", "Prix premium"],
+    "cons": [
+      "Le 4090 reste supérieur pour le 4K",
+      "Prix premium"
+    ],
     "targetGames": [
-      { "name": "CS2", "fps": "500+ FPS", "settings": "Low 1080p" },
-      { "name": "Valorant", "fps": "600+ FPS", "settings": "Low 1080p" },
-      { "name": "Overwatch 2", "fps": "400+ FPS", "settings": "Ultra 1080p" }
+      {
+        "name": "CS2",
+        "fps": "500+ FPS",
+        "settings": "Low 1080p"
+      },
+      {
+        "name": "Valorant",
+        "fps": "600+ FPS",
+        "settings": "Low 1080p"
+      },
+      {
+        "name": "Overwatch 2",
+        "fps": "400+ FPS",
+        "settings": "Ultra 1080p"
+      }
     ],
     "badge": null,
     "upgrades": [
@@ -219,18 +337,28 @@
         "priceAdd": 180,
         "componentReplaces": "ram_32_ddr5_6400"
       }
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "4k_beast",
     "slug": "4k-beast",
     "name": "4K Beast",
     "tier": "extreme",
-    "usage": ["rpg", "fps"],
+    "usage": [
+      "rpg",
+      "fps"
+    ],
     "tagline": "4K Ultra natif, Ray Tracing maximal, l'expérience ultime",
     "totalPrice": 3750,
     "assemblyFee": 200,
-    "performanceScore": { "gaming": 100, "creation": 88, "office": 97, "value": 50, "future": 95 },
+    "performanceScore": {
+      "gaming": 100,
+      "creation": 88,
+      "office": 97,
+      "value": 50,
+      "future": 95
+    },
     "components": [
       "cpu_ryzen_7_7800x3d",
       "gpu_rtx_4090",
@@ -245,11 +373,26 @@
       "7800X3D : CPU gaming #1",
       "4K Ultra dans tous les jeux"
     ],
-    "cons": ["Investissement très élevé", "La RTX 4090 consomme beaucoup"],
+    "cons": [
+      "Investissement très élevé",
+      "La RTX 4090 consomme beaucoup"
+    ],
     "targetGames": [
-      { "name": "Cyberpunk 2077", "fps": "60+ FPS", "settings": "Overdrive RT 4K" },
-      { "name": "Alan Wake 2", "fps": "60+ FPS", "settings": "PT Ultra 4K" },
-      { "name": "Baldur's Gate 3", "fps": "120+ FPS", "settings": "Ultra 4K" }
+      {
+        "name": "Cyberpunk 2077",
+        "fps": "60+ FPS",
+        "settings": "Overdrive RT 4K"
+      },
+      {
+        "name": "Alan Wake 2",
+        "fps": "60+ FPS",
+        "settings": "PT Ultra 4K"
+      },
+      {
+        "name": "Baldur's Gate 3",
+        "fps": "120+ FPS",
+        "settings": "Ultra 4K"
+      }
     ],
     "badge": "Top Vendeur",
     "upgrades": [
@@ -260,18 +403,28 @@
         "priceAdd": 180,
         "componentReplaces": "ram_32_ddr5_6000"
       }
-    ]
+    ],
+    "featured": true
   },
   {
     "id": "workstation_ultime",
     "slug": "workstation-ultime",
     "name": "Workstation Ultime",
     "tier": "extreme",
-    "usage": ["workstation", "creation"],
+    "usage": [
+      "workstation",
+      "creation"
+    ],
     "tagline": "Rendu professionnel, simulation et CAO sans limites",
     "totalPrice": 5400,
     "assemblyFee": 250,
-    "performanceScore": { "gaming": 85, "creation": 100, "office": 100, "value": 30, "future": 100 },
+    "performanceScore": {
+      "gaming": 85,
+      "creation": 100,
+      "office": 100,
+      "value": 30,
+      "future": 100
+    },
     "components": [
       "cpu_ryzen_9_9950x",
       "gpu_rtx_4090",
@@ -291,23 +444,45 @@
       "Largement surdimensionné pour le gaming seul"
     ],
     "targetGames": [
-      { "name": "SolidWorks", "fps": "Fluidité maximale", "settings": "Modèles complexes" },
-      { "name": "Unreal Engine 5", "fps": "Rendu temps réel", "settings": "Lumen + Nanite" },
-      { "name": "DaVinci Resolve", "fps": "Export instantané", "settings": "8K timeline" }
+      {
+        "name": "SolidWorks",
+        "fps": "Fluidité maximale",
+        "settings": "Modèles complexes"
+      },
+      {
+        "name": "Unreal Engine 5",
+        "fps": "Rendu temps réel",
+        "settings": "Lumen + Nanite"
+      },
+      {
+        "name": "DaVinci Resolve",
+        "fps": "Export instantané",
+        "settings": "8K timeline"
+      }
     ],
     "badge": null,
-    "upgrades": []
+    "upgrades": [],
+    "featured": false
   },
   {
     "id": "enthusiast_gaming",
     "slug": "enthusiast-gaming",
     "name": "Enthusiast Gaming",
     "tier": "extreme",
-    "usage": ["fps", "rpg"],
+    "usage": [
+      "fps",
+      "rpg"
+    ],
     "tagline": "Pour ceux qui veulent absolument le meilleur sans compromis",
     "totalPrice": 4450,
     "assemblyFee": 350,
-    "performanceScore": { "gaming": 99, "creation": 92, "office": 98, "value": 35, "future": 90 },
+    "performanceScore": {
+      "gaming": 99,
+      "creation": 92,
+      "office": 98,
+      "value": 35,
+      "future": 90
+    },
     "components": [
       "cpu_intel_i9_14900ks",
       "gpu_rtx_4090",
@@ -322,9 +497,16 @@
       "DDR5-7200 XMP overclockée",
       "AIO 360mm custom pour le silence"
     ],
-    "cons": ["Prix extrême", "Montage plus complexe (surcharge AIO custom)"],
+    "cons": [
+      "Prix extrême",
+      "Montage plus complexe (surcharge AIO custom)"
+    ],
     "targetGames": [
-      { "name": "Tous jeux récents", "fps": "120+ FPS", "settings": "Ultra/Max 4K" }
+      {
+        "name": "Tous jeux récents",
+        "fps": "120+ FPS",
+        "settings": "Ultra/Max 4K"
+      }
     ],
     "badge": "Nouveau",
     "upgrades": [
@@ -335,18 +517,28 @@
         "priceAdd": 600,
         "componentReplaces": null
       }
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "silent_pro",
     "slug": "silent-pro",
     "name": "Silent Pro",
     "tier": "mid",
-    "usage": ["office", "creation"],
+    "usage": [
+      "office",
+      "creation"
+    ],
     "tagline": "PC quasi inaudible pour télétravail intensif et création légère",
     "totalPrice": 1380,
     "assemblyFee": 170,
-    "performanceScore": { "gaming": 65, "creation": 70, "office": 100, "value": 80, "future": 75 },
+    "performanceScore": {
+      "gaming": 65,
+      "creation": 70,
+      "office": 100,
+      "value": 80,
+      "future": 75
+    },
     "components": [
       "cpu_ryzen_5_7600",
       "gpu_rtx_4070",
@@ -367,9 +559,21 @@
       "GPU choisi pour son ratio bruit/perf, pas pour le top FPS"
     ],
     "targetGames": [
-      { "name": "Cyberpunk 2077", "fps": "70+ FPS", "settings": "Ultra 1440p DLSS Q" },
-      { "name": "Adobe Lightroom", "fps": "Fluide", "settings": "RAW 50 MP" },
-      { "name": "Visioconférence + 30 onglets", "fps": "Fluide", "settings": "Sans ralentissement" }
+      {
+        "name": "Cyberpunk 2077",
+        "fps": "70+ FPS",
+        "settings": "Ultra 1440p DLSS Q"
+      },
+      {
+        "name": "Adobe Lightroom",
+        "fps": "Fluide",
+        "settings": "RAW 50 MP"
+      },
+      {
+        "name": "Visioconférence + 30 onglets",
+        "fps": "Fluide",
+        "settings": "Sans ralentissement"
+      }
     ],
     "badge": null,
     "upgrades": [
@@ -380,18 +584,28 @@
         "priceAdd": 169,
         "componentReplaces": null
       }
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "creator_mid",
     "slug": "creator-mid",
     "name": "Créateur Solo",
     "tier": "high",
-    "usage": ["creation", "rpg"],
+    "usage": [
+      "creation",
+      "rpg"
+    ],
     "tagline": "Montage 4K, photo, streaming Twitch — sans le surcoût du tier extrême",
     "totalPrice": 1880,
     "assemblyFee": 170,
-    "performanceScore": { "gaming": 78, "creation": 88, "office": 96, "value": 78, "future": 80 },
+    "performanceScore": {
+      "gaming": 78,
+      "creation": 88,
+      "office": 96,
+      "value": 78,
+      "future": 80
+    },
     "components": [
       "cpu_intel_i5_14400",
       "gpu_rtx_4070_super",
@@ -412,9 +626,21 @@
       "Pas de PCIe 5.0 sur la carte mère B760"
     ],
     "targetGames": [
-      { "name": "DaVinci Resolve 4K", "fps": "Lecture fluide", "settings": "10-bit timeline" },
-      { "name": "OBS Streaming + jeu", "fps": "Stable 60 FPS", "settings": "1080p NVENC" },
-      { "name": "Premiere Pro", "fps": "Export rapide", "settings": "H.264 hardware" }
+      {
+        "name": "DaVinci Resolve 4K",
+        "fps": "Lecture fluide",
+        "settings": "10-bit timeline"
+      },
+      {
+        "name": "OBS Streaming + jeu",
+        "fps": "Stable 60 FPS",
+        "settings": "1080p NVENC"
+      },
+      {
+        "name": "Premiere Pro",
+        "fps": "Export rapide",
+        "settings": "H.264 hardware"
+      }
     ],
     "badge": "Nouveau",
     "upgrades": [
@@ -425,18 +651,28 @@
         "priceAdd": 230,
         "componentReplaces": "gpu_rtx_4070_super"
       }
-    ]
+    ],
+    "featured": false
   },
   {
     "id": "compact_itx",
     "slug": "compact-itx",
     "name": "Compact ITX",
     "tier": "budget",
-    "usage": ["office", "fps"],
+    "usage": [
+      "office",
+      "fps"
+    ],
     "tagline": "Mini-PC bureau & gaming léger — tient dans 10 litres",
     "totalPrice": 970,
     "assemblyFee": 200,
-    "performanceScore": { "gaming": 45, "creation": 40, "office": 95, "value": 78, "future": 55 },
+    "performanceScore": {
+      "gaming": 45,
+      "creation": 40,
+      "office": 95,
+      "value": 78,
+      "future": 55
+    },
     "components": [
       "cpu_amd_8500g",
       "ram_16_ddr5_5200",
@@ -455,9 +691,21 @@
       "Montage ITX plus minutieux (frais d'assemblage majorés)"
     ],
     "targetGames": [
-      { "name": "League of Legends", "fps": "120+ FPS", "settings": "High 1080p" },
-      { "name": "CS2", "fps": "100+ FPS", "settings": "Low 1080p" },
-      { "name": "Office 365 / Web", "fps": "Instantané", "settings": "Multitâche fluide" }
+      {
+        "name": "League of Legends",
+        "fps": "120+ FPS",
+        "settings": "High 1080p"
+      },
+      {
+        "name": "CS2",
+        "fps": "100+ FPS",
+        "settings": "Low 1080p"
+      },
+      {
+        "name": "Office 365 / Web",
+        "fps": "Instantané",
+        "settings": "Multitâche fluide"
+      }
     ],
     "badge": "Nouveau",
     "upgrades": [
@@ -468,6 +716,7 @@
         "priceAdd": 329,
         "componentReplaces": null
       }
-    ]
+    ],
+    "featured": false
   }
 ]

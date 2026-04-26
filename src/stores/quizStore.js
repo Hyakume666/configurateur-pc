@@ -3,6 +3,14 @@ import questions from '@/data/questions.json'
 
 const STORAGE_KEY = 'quiz_state_v1'
 
+const DEFAULT_ANSWERS = {
+  usage: null,
+  budget: null,
+  level: null,
+  priority: null,
+  peripherals: []
+}
+
 function loadInitial() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
@@ -19,13 +27,7 @@ export const useQuizStore = defineStore('quiz', {
     return {
       currentStep: persisted?.currentStep ?? 1,
       direction: 'next',
-      answers: persisted?.answers ?? {
-        usage: null,
-        budget: null,
-        level: null,
-        priority: null,
-        peripherals: []
-      },
+      answers: persisted?.answers ?? { ...DEFAULT_ANSWERS },
       completed: persisted?.completed ?? false
     }
   },
@@ -102,13 +104,7 @@ export const useQuizStore = defineStore('quiz', {
     reset() {
       this.currentStep = 1
       this.direction = 'next'
-      this.answers = {
-        usage: null,
-        budget: null,
-        level: null,
-        priority: null,
-        peripherals: []
-      }
+      this.answers = { ...DEFAULT_ANSWERS }
       this.completed = false
       this.persist()
     }

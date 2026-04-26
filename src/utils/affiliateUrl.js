@@ -37,10 +37,6 @@ function buildSearchUrl(retailer, query) {
   const path = SEARCH_PATH[retailer.id]
   if (!path) return retailer.baseUrl
   const encoded = encodeURIComponent(query)
-  // Search URLs may already contain "?" depending on the retailer.
-  if (path.includes('?')) {
-    return `${retailer.baseUrl}/${path}${encoded}`
-  }
   return `${retailer.baseUrl}/${path}${encoded}`
 }
 

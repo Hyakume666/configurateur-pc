@@ -47,5 +47,5 @@ export function useAffiliates() {
     }
   }
 
-  return { trackClick, getEvents, clearEvents, buildAffiliateUrl }
+  return { trackClick, getEvents, clearEvents }
 }

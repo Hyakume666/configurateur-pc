@@ -11,10 +11,7 @@ export const useConfigStore = defineStore('configs', {
   getters: {
     bySlug: (state) => (slug) => state.configs.find((c) => c.slug === slug),
     componentById: (state) => (id) => state.components.find((c) => c.id === id),
-    popularConfigs: (state) =>
-      ['sweet_spot', '4k_beast', 'gaming_entry']
-        .map((id) => state.configs.find((c) => c.id === id))
-        .filter(Boolean),
+    popularConfigs: (state) => state.configs.filter((c) => c.featured),
     allConfigsSorted: (state) =>
       [...state.configs].sort(
         (a, b) =>

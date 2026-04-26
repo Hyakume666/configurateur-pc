@@ -39,10 +39,20 @@ const routes = [
     meta: { title: 'Détails configuration' }
   },
   {
+    path: '/admin-login',
+    name: 'admin-login',
+    component: () => import('@/views/AdminLoginView.vue'),
+    meta: { title: 'Admin — Connexion' }
+  },
+  {
     path: '/admin',
     name: 'admin',
     component: () => import('@/views/AdminView.vue'),
-    meta: { title: 'Admin — Statistiques' }
+    meta: { title: 'Admin — Statistiques' },
+    beforeEnter: () => {
+      const pwd = import.meta.env.VITE_ADMIN_PASSWORD
+      if (pwd && sessionStorage.getItem('admin_auth') !== pwd) return '/admin-login'
+    }
   },
   {
     path: '/mentions-legales',

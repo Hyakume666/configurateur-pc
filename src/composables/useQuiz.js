@@ -1,5 +1,5 @@
 import questions from '@/data/questions.json'
-import configs from '@/data/configs.json'
+import { useConfigStore } from '@/stores/configStore'
 
 const PRIORITY_FIELD_MAP = {
   fps_max: 'gaming',
@@ -55,8 +55,10 @@ export function scoreConfig(config, answers) {
 }
 
 export function useQuiz() {
+  const configStore = useConfigStore()
+
   function rankConfigs(answers) {
-    const ranked = configs
+    const ranked = configStore.configs
       .map((config) => {
         const { score, reasons } = scoreConfig(config, answers)
         return { ...config, _score: score, _reasons: reasons }
