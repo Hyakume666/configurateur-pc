@@ -38,12 +38,7 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Loïc.config',
-  url: SITE_URL,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${SITE_URL}/configs?q={search_term_string}`,
-    'query-input': 'required name=search_term_string'
-  }
+  url: SITE_URL
 }
 
 useHead({
