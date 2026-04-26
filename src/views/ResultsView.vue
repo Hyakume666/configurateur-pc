@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { RotateCcw, Layers } from 'lucide-vue-next'
 import { useHead } from '@vueuse/head'
@@ -26,12 +26,6 @@ const matches = computed(() => {
 })
 
 const summary = computed(() => summarizeAnswers(quizStore.answers))
-
-onMounted(() => {
-  if (!quizStore.completed && !configStore.topMatches.length) {
-    router.replace({ name: 'quiz' })
-  }
-})
 
 function restart() {
   quizStore.reset()

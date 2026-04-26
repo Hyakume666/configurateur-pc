@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useQuizStore } from '@/stores/quizStore'
+import { useConfigStore } from '@/stores/configStore'
 
 const routes = [
   {
@@ -17,7 +19,14 @@ const routes = [
     path: '/results',
     name: 'results',
     component: () => import('@/views/ResultsView.vue'),
-    meta: { title: 'Vos configurations recommandées' }
+    meta: { title: 'Vos configurations recommandées' },
+    beforeEnter: () => {
+      const quizStore = useQuizStore()
+      const configStore = useConfigStore()
+      if (!quizStore.completed && !configStore.topMatches.length) {
+        return { name: 'quiz' }
+      }
+    }
   },
   {
     path: '/configs',
